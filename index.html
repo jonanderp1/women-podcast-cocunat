@@ -317,34 +317,30 @@
 
     .hero__platforms-icons {
       display: flex;
-      gap: 4px;
+      gap: 16px;
       align-items: center;
     }
 
-    .hero__platforms-icons .icon {
-      width: clamp(32px, 3.5vw, 26px);
-      height: clamp(32px, 3.5vw, 26px);
+    .hero__icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.16);
       display: flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
       cursor: pointer;
+      transition: border-color 0.2s;
     }
 
-    .hero__platforms-icons .icon svg {
-      width: clamp(24px, 2.5vw, 18px);
-      height: clamp(24px, 2.5vw, 18px);
+    .hero__icon-circle:hover {
+      border-color: rgba(0, 0, 0, 0.5);
     }
 
-    @media (min-width: 1060px) {
-      .hero__platforms-icons .icon {
-        width: 26px;
-        height: 26px;
-      }
-
-      .hero__platforms-icons .icon svg {
-        width: 18px;
-        height: 18px;
-      }
+    .hero__icon-circle svg {
+      width: 20px;
+      height: 20px;
     }
 
     /* ─── QUOTE SECTION ─── */
@@ -415,26 +411,151 @@
       margin: 0 auto 80px;
     }
 
-    /* ─── FEATURED EPISODE ─── */
-    .featured-episode {
-      display: flex;
-      align-items: stretch;
-      border: 1px solid var(--color-border-subtle);
-      padding: 36px;
+    /* ─── EPISODE BANNER ─── */
+    .episode-banner {
+      position: relative;
       max-width: 1340px;
       margin: 0 auto 40px;
-      gap: 40px;
+      overflow: hidden;
+      aspect-ratio: 16 / 7;
     }
 
-    .featured-episode__info {
+    .episode-banner__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.4s ease;
+    }
+
+    .episode-banner:hover .episode-banner__bg {
+      transform: scale(1.03);
+    }
+
+    .episode-banner__content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 50px;
-      width: 438px;
-      flex-shrink: 0;
       justify-content: space-between;
+      height: 100%;
+      padding: 32px;
+      color: var(--color-fg-light);
     }
 
+    .episode-banner__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .episode-banner__top-left,
+    .episode-banner__top-right {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .episode-banner__top-right {
+      text-align: right;
+    }
+
+    .episode-banner__name,
+    .episode-banner__ep {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .episode-banner__role,
+    .episode-banner__series {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .episode-banner__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .episode-banner__bottom-left {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 440px;
+    }
+
+    .episode-banner__quote {
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--color-fg-light);
+    }
+
+    .episode-banner__desc {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 23px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-banner__platforms {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 11px;
+    }
+
+    .episode-banner__platforms-label {
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--color-fg-light);
+    }
+
+    .episode-banner__icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .episode-banner__icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .episode-banner__icon-circle:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .episode-banner__icon-circle svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .episode-banner__duration {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 23px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-banner__duration--mobile {
+      display: none;
+    }
+
+    /* ─── FEATURED EPISODE (kept for episode cards) ─── */
     .episode-number {
       font-family: var(--font-serif);
       font-size: 144px;
@@ -446,18 +567,6 @@
 
     .episode-number--small {
       font-size: 104px;
-    }
-
-    .episode-content {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .episode-title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
     }
 
     .episode-title {
@@ -483,42 +592,10 @@
       font-size: 16px;
     }
 
-    .episode-description {
-      display: flex;
-      flex-direction: column;
-      gap: 64px;
-    }
-
-    .episode-description__text-block {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .episode-description__text {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 23px;
-      color: var(--color-fg-light);
-    }
-
     .episode-duration {
       font-size: 18px;
       font-weight: 400;
       line-height: 23px;
-      color: var(--color-fg-light);
-    }
-
-    .episode-platforms {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .episode-platforms__label {
-      font-size: 12px;
-      font-weight: 300;
-      text-transform: uppercase;
       color: var(--color-fg-light);
     }
 
@@ -568,21 +645,7 @@
       line-height: 16px;
     }
 
-    .featured-episode__image {
-      flex: 1;
-      align-self: stretch;
-      overflow: hidden;
-      min-height: 0;
-    }
-
-    .featured-episode__image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* ─── EPISODE GRID ─── */
+    /* ─── EPISODE GRID (original 2-card row) ─── */
     .episode-grid {
       display: flex;
       gap: 20px;
@@ -592,23 +655,67 @@
 
     .episode-card {
       flex: 1;
-      border: 1px solid var(--color-border-subtle);
-      padding: 32px;
+      border: 1px solid #272727;
+      padding: 16px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .episode-card:hover {
+      background-color: #232323;
+    }
+
+    .episode-card__info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 460px;
     }
 
-    .episode-card__header {
+    .episode-card__info-top {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .episode-card__info-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .episode-card__ep {
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--color-fg-light);
+    }
+
+    .episode-card__quote {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-card__duration {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 18px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-card__icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
     }
 
     .episode-card__thumbnail {
-      width: 180px;
-      height: 180px;
+      width: 220px;
+      align-self: stretch;
       position: relative;
       overflow: hidden;
       flex-shrink: 0;
@@ -618,6 +725,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .episode-card:hover .episode-card__thumbnail img {
+      transform: scale(1.08);
     }
 
     .episode-card__thumbnail::after {
@@ -637,23 +749,26 @@
       justify-content: center;
       text-align: center;
       color: var(--color-fg-light);
+      padding: 8px;
+      flex-wrap: wrap;
+      gap: 0 14px;
     }
 
     .episode-card__thumbnail-top {
       position: absolute;
       top: 14px;
-      font-size: 8px;
+      font-size: 14px;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      line-height: 11px;
+      line-height: 13px;
     }
 
     .episode-card__thumbnail-name {
-      font-size: 19px;
+      font-size: 24px;
       font-weight: 400;
       text-transform: uppercase;
-      line-height: 18px;
+      line-height: 26px;
       text-align: center;
     }
 
@@ -664,29 +779,89 @@
       right: 0;
       display: flex;
       justify-content: space-between;
-      padding: 0 7px;
-      font-size: 8px;
+      padding: 0 8px;
+      font-size: 12px;
       font-weight: 400;
       text-transform: uppercase;
-      line-height: 11px;
+      line-height: 13px;
     }
 
-    .episode-card__body {
+    /* ─── FEATURED GRID (1 big + 2 small) ─── */
+    .episode-grid--featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+      max-width: 1340px;
+      margin: 20px auto 0;
+    }
+
+    .episode-card--featured {
+      grid-row: 1 / 3;
+      border: 1px solid #272727;
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+      overflow: hidden;
     }
 
-    .episode-card__title-block {
+    .episode-card--featured:hover {
+      background-color: #232323;
+    }
+
+    .episode-card--featured__top {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .episode-card--featured__top .episode-card__ep {
+      flex: 1;
+      padding-top: 4px;
+    }
+
+    .episode-card--featured__top .episode-card__thumbnail {
+      width: 50%;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+
+    .episode-card--featured__top .episode-card__thumbnail img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .episode-card--featured:hover .episode-card__thumbnail img {
+      transform: scale(1.08);
+    }
+
+    .episode-card--featured__bottom {
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: auto;
+      padding-top: 20px;
     }
 
-    .episode-card__footer {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+    .episode-card--featured__bottom .episode-card__quote {
+      font-size: 32px;
+      line-height: 38px;
+    }
+
+    .episode-card__desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .episode-card__desc strong {
+      font-weight: 400;
+      color: var(--color-fg-light);
     }
 
     /* ─── UTILITIES ─── */
@@ -802,18 +977,25 @@
         padding: 60px 24px 80px;
       }
 
-      .featured-episode {
-        flex-direction: column;
+      .episode-banner {
+        aspect-ratio: 16 / 10;
+      }
+
+      .episode-banner__content {
         padding: 24px;
-        gap: 24px;
       }
 
-      .featured-episode__info {
-        width: 100%;
+      .episode-banner__quote {
+        font-size: 30px;
       }
 
-      .featured-episode__image {
-        min-height: 300px;
+      .episode-banner__desc {
+        font-size: 16px;
+        line-height: 21px;
+      }
+
+      .episode-banner__bottom-left {
+        max-width: 340px;
       }
 
       .episode-grid {
@@ -821,27 +1003,75 @@
         gap: 16px;
       }
 
-      .episode-card {
-        height: auto;
-        min-height: 360px;
+      .episode-grid--featured {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 16px;
       }
 
-      .episode-number {
-        font-size: 80px;
+      .episode-card--featured {
+        grid-row: auto;
       }
 
-      .episode-number--small {
-        font-size: 64px;
+      .episode-card__thumbnail {
+        width: 180px;
+      }
+
+      .episode-card__quote {
+        font-size: 26px;
+        line-height: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .episode-banner {
+        aspect-ratio: 3 / 4;
+      }
+
+      .episode-banner__content {
+        padding: 20px;
+      }
+
+      .episode-banner__bottom {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .episode-banner__bottom-left {
+        max-width: 100%;
+      }
+
+      .episode-banner__duration {
+        display: none;
+      }
+
+      .episode-banner__duration--mobile {
+        display: block;
+      }
+
+      .episode-banner__name,
+      .episode-banner__ep {
+        font-size: 14px;
+      }
+
+      .episode-banner__role,
+      .episode-banner__series {
+        font-size: 11px;
+      }
+
+      .episode-banner__quote {
+        font-size: 20px;
+      }
+
+      .episode-banner__desc {
+        font-size: 14px;
+        line-height: 19px;
       }
     }
 
     @media (max-width: 500px) {
       .dark-section {
         padding: 40px 16px 60px;
-      }
-
-      .featured-episode {
-        padding: 16px;
       }
 
       .dark-section__mission {
@@ -860,7 +1090,6 @@
 
       .episode-card__thumbnail {
         width: 140px;
-        height: 140px;
       }
 
       .episode-buttons {
@@ -945,16 +1174,16 @@
         <div class="hero__platforms">
         <span class="hero__platforms-label">DISPONIBLE EN</span>
         <div class="hero__platforms-icons">
-          <span class="icon">
+          <a href="#" class="hero__icon-circle">
             <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618l-.001.002-.002-.002-.005-.009-.003-.005.002.001-.002-.002-.005-.009-.002.002-.002-.002-.003.002-.002-.002-.001.002-.002-.002.001.002-.002-.002zM15.343 11.958a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098v-.002l.002-.003-.002.003v-.003l-.002.002v-.002l.002.002v-.416zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296v-.416z" fill="black"/>
+              <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
             </svg>
-          </span>
-          <span class="icon">
+          </a>
+          <a href="#" class="hero__icon-circle">
             <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75v.287z" fill="black"/>
+              <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
             </svg>
-          </span>
+          </a>
         </div>
       </div>
       </div>
@@ -971,137 +1200,161 @@
   <section class="dark-section" data-bg-color="#1a1e1e">
     <p class="dark-section__mission">ALZAMOS LA VOZ DE MUJERES EXTRAORDINARIAS QUE, DE UNA FORMA U OTRA, EST&Aacute;N CAMBIANDO EL MUNDO.</p>
 
-    <!-- FEATURED EPISODE 01 -->
-    <article class="featured-episode">
-      <div class="featured-episode__info">
-        <span class="episode-number">01</span>
-        <div class="episode-content">
-          <div class="episode-title-block">
-            <h2 class="episode-title">"Nunca es tarde. Tampoco a los 60."</h2>
-            <p class="episode-author">SOF&Iacute;A RUIZ DEL CUETO</p>
+    <!-- EPISODE BANNER -->
+    <article class="episode-banner">
+      <img class="episode-banner__bg" src="assets/episode-01-banner.png" alt="">
+      <div class="episode-banner__content">
+        <div class="episode-banner__top">
+          <div class="episode-banner__top-left">
+            <span class="episode-banner__name">PINO MONTESDEOCA</span>
+            <span class="episode-banner__role">MODELO &amp; ACTRIZ</span>
           </div>
-          <div class="episode-description">
-            <div class="episode-description__text-block">
-              <p class="episode-description__text">Build a clear roadmap with tailored strategy sessions that align your financial goals with practical, actionable steps. Uncovers opportunities and challenges, giving you the clarity to move forward.</p>
-              <p class="episode-duration">1h 13m</p>
-            </div>
-            <div class="episode-platforms">
-              <span class="episode-platforms__label">DISPONIBLE EN</span>
-              <div class="episode-buttons">
-                <a href="#" class="btn-platform">
-                  <span class="btn-platform__icon">
-                    <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
-                    </svg>
-                  </span>
-                  <span class="btn-platform__label">SPOTIFY</span>
+          <div class="episode-banner__top-right">
+            <span class="episode-banner__ep">EPISODIO 1</span>
+            <span class="episode-banner__series">WOMEN BY COCUNAT</span>
+          </div>
+        </div>
+        <div class="episode-banner__bottom">
+          <div class="episode-banner__bottom-left">
+            <h2 class="episode-banner__quote">&ldquo;Nunca es tarde. Tampoco a los 60.&rdquo;</h2>
+            <p class="episode-banner__desc">Build a clear roadmap with tailored strategy sessions that align your financial goals with practical, actionable steps. Uncovers opportunities and challenges, giving you the clarity to move forward.</p>
+            <span class="episode-banner__duration episode-banner__duration--mobile">1h 13m</span>
+            <div class="episode-banner__platforms">
+              <div class="episode-banner__icons">
+                <a href="#" class="episode-banner__icon-circle">
+                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/>
+                  </svg>
                 </a>
-                <a href="#" class="btn-platform">
-                  <span class="btn-platform__icon">
-                    <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
-                    </svg>
-                  </span>
-                  <span class="btn-platform__label">YOUTUBE</span>
+                <a href="#" class="episode-banner__icon-circle">
+                  <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/>
+                  </svg>
                 </a>
               </div>
             </div>
           </div>
+          <span class="episode-banner__duration">1h 13m</span>
         </div>
-      </div>
-      <div class="featured-episode__image">
-        <img src="assets/episode-01.png" alt="Pino Montesdeoca - Modelo y Actriz">
       </div>
     </article>
 
-    <!-- EPISODE GRID -->
+    <!-- EPISODE GRID (original 2 cards) -->
     <div class="episode-grid">
-      <!-- EPISODE 02 -->
       <article class="episode-card">
-        <div class="episode-card__header">
-          <span class="episode-number episode-number--small">02</span>
-          <div class="episode-card__thumbnail">
-            <img src="assets/episode-02.png" alt="Sofia Ruiz del Cueto">
-            <div class="episode-card__thumbnail-overlay">
-              <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
-              <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
-              <div class="episode-card__thumbnail-bottom">
-                <span>EP 1</span>
-                <span>M&eacute;dica Est&eacute;tica</span>
-              </div>
+        <div class="episode-card__info">
+          <div class="episode-card__info-top">
+            <span class="episode-card__ep">EP 1</span>
+            <h3 class="episode-card__quote">&ldquo;No trato arrugas, trato personas&rdquo;</h3>
+          </div>
+          <div class="episode-card__info-bottom">
+            <span class="episode-card__duration">1h 13m</span>
+            <div class="episode-card__icons">
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/></svg></a>
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/></svg></a>
             </div>
           </div>
         </div>
-        <div class="episode-card__body">
-          <div class="episode-card__title-block">
-            <h3 class="episode-title episode-title--small">"No trato arrugas, trato personas"</h3>
-            <p class="episode-author episode-author--small">SOF&Iacute;A RUIZ DEL CUETO | M&eacute;dica Est&eacute;tica</p>
-          </div>
-          <div class="episode-card__footer">
-            <span class="episode-duration">1h 13m</span>
-            <div class="episode-buttons">
-              <a href="#" class="btn-platform">
-                <span class="btn-platform__icon">
-                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
-                  </svg>
-                </span>
-                <span class="btn-platform__label">SPOTIFY</span>
-              </a>
-              <a href="#" class="btn-platform">
-                <span class="btn-platform__icon">
-                  <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
-                  </svg>
-                </span>
-                <span class="btn-platform__label">YOUTUBE</span>
-              </a>
-            </div>
+        <div class="episode-card__thumbnail">
+          <img src="assets/episode-02.png" alt="Sof&iacute;a Ruiz del Cueto">
+          <div class="episode-card__thumbnail-overlay">
+            <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+            <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
+            <div class="episode-card__thumbnail-bottom"><span>EP 1</span><span>M&eacute;dica Est&eacute;tica</span></div>
           </div>
         </div>
       </article>
-
-      <!-- EPISODE 03 -->
       <article class="episode-card">
-        <div class="episode-card__header">
-          <span class="episode-number episode-number--small">03</span>
-          <div class="episode-card__thumbnail">
-            <img src="assets/episode-03.png" alt="Marta Marce">
-            <div class="episode-card__thumbnail-overlay">
-              <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
-              <span class="episode-card__thumbnail-name">MARTA<br>MARC&Egrave;</span>
-              <div class="episode-card__thumbnail-bottom">
-                <span>EP 1</span>
-                <span>M&eacute;dica Est&eacute;tica</span>
-              </div>
+        <div class="episode-card__info">
+          <div class="episode-card__info-top">
+            <span class="episode-card__ep">EP 2</span>
+            <h3 class="episode-card__quote">&ldquo;A los 26 me dijeron: No vas a ser madre y no vas a menstruar m&aacute;s&rdquo;</h3>
+          </div>
+          <div class="episode-card__info-bottom">
+            <span class="episode-card__duration">1h 13m</span>
+            <div class="episode-card__icons">
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/></svg></a>
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/></svg></a>
             </div>
           </div>
         </div>
-        <div class="episode-card__body">
-          <div class="episode-card__title-block">
-            <h3 class="episode-title episode-title--small">"A los 26 me dijeron: No vas a ser madre y no vas a menstruar m&aacute;s"</h3>
-            <p class="episode-author episode-author--small">MARTA MARC&Egrave; | Nutricionista y Experta en Menopausia</p>
+        <div class="episode-card__thumbnail">
+          <img src="assets/episode-03.png" alt="Marta Marc&egrave;">
+          <div class="episode-card__thumbnail-overlay">
+            <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+            <span class="episode-card__thumbnail-name">MARTA<br>MARC&Egrave;</span>
+            <div class="episode-card__thumbnail-bottom"><span>EP 2</span><span>Nutricionista</span></div>
           </div>
-          <div class="episode-card__footer">
-            <span class="episode-duration">1h 13m</span>
-            <div class="episode-buttons">
-              <a href="#" class="btn-platform">
-                <span class="btn-platform__icon">
-                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
-                  </svg>
-                </span>
-                <span class="btn-platform__label">SPOTIFY</span>
-              </a>
-              <a href="#" class="btn-platform">
-                <span class="btn-platform__icon">
-                  <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
-                  </svg>
-                </span>
-                <span class="btn-platform__label">YOUTUBE</span>
-              </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- FEATURED GRID (1 big + 2 small) -->
+    <div class="episode-grid--featured">
+      <article class="episode-card--featured">
+        <div class="episode-card--featured__top">
+          <span class="episode-card__ep">EP 1</span>
+          <div class="episode-card__thumbnail">
+            <img src="assets/episode-02.png" alt="Sof&iacute;a Ruiz del Cueto">
+            <div class="episode-card__thumbnail-overlay">
+              <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+              <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
+              <div class="episode-card__thumbnail-bottom"><span>EP 1</span><span>M&eacute;dica Est&eacute;tica</span></div>
             </div>
+          </div>
+        </div>
+        <div class="episode-card--featured__bottom">
+          <h3 class="episode-card__quote">&ldquo;No trato arrugas, trato personas&rdquo;</h3>
+          <p class="episode-card__desc"><strong>La doctora que humaniza la medicina est&eacute;tica.</strong> Habla de belleza, pero tambi&eacute;n de verdad, &eacute;tica y responsabilidad. Una conversaci&oacute;n que te ayuda a protegerte como paciente, desarma prejuicios y revela lo que nadie te cuenta sobre la medicina est&eacute;tica.</p>
+          <div class="episode-card__icons">
+            <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/></svg></a>
+            <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <article class="episode-card">
+        <div class="episode-card__info">
+          <div class="episode-card__info-top">
+            <span class="episode-card__ep">EP 1</span>
+            <h3 class="episode-card__quote">&ldquo;No trato arrugas, trato personas&rdquo;</h3>
+          </div>
+          <div class="episode-card__info-bottom">
+            <span class="episode-card__duration">1h 13m</span>
+            <div class="episode-card__icons">
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/></svg></a>
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="episode-card__thumbnail">
+          <img src="assets/episode-02.png" alt="Sof&iacute;a Ruiz del Cueto">
+          <div class="episode-card__thumbnail-overlay">
+            <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+            <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
+            <div class="episode-card__thumbnail-bottom"><span>EP 1</span><span>M&eacute;dica Est&eacute;tica</span></div>
+          </div>
+        </div>
+      </article>
+      <article class="episode-card">
+        <div class="episode-card__info">
+          <div class="episode-card__info-top">
+            <span class="episode-card__ep">EP 1</span>
+            <h3 class="episode-card__quote">&ldquo;No trato arrugas, trato personas&rdquo;</h3>
+          </div>
+          <div class="episode-card__info-bottom">
+            <span class="episode-card__duration">1h 13m</span>
+            <div class="episode-card__icons">
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="white"/></svg></a>
+              <a href="#" class="episode-banner__icon-circle"><svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="white"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="episode-card__thumbnail">
+          <img src="assets/episode-02.png" alt="Sof&iacute;a Ruiz del Cueto">
+          <div class="episode-card__thumbnail-overlay">
+            <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+            <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
+            <div class="episode-card__thumbnail-bottom"><span>EP 1</span><span>M&eacute;dica Est&eacute;tica</span></div>
           </div>
         </div>
       </article>
