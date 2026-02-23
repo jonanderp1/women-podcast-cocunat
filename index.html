@@ -241,7 +241,7 @@
     }
 
     .hero__subtitle {
-      font-size: clamp(14px, 2.5vw, 24px);
+      font-size: clamp(16px, 3vw, 24px);
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--color-fg-dark);
@@ -250,7 +250,7 @@
     }
 
     .hero__title {
-      font-size: clamp(48px, 10vw, 105px);
+      font-size: clamp(68px, 14vw, 105px);
       font-weight: 400;
       line-height: 0.85;
       color: var(--color-fg-dark);
@@ -271,7 +271,7 @@
     }
 
     .hero__tagline {
-      font-size: clamp(14px, 2.5vw, 24px);
+      font-size: clamp(16px, 3vw, 24px);
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--color-fg-dark);
@@ -285,7 +285,7 @@
     }
 
     .hero__platforms-label {
-      font-size: clamp(10px, 1.5vw, 14px);
+      font-size: clamp(12px, 1.8vw, 14px);
       font-weight: 400;
       text-transform: uppercase;
       color: var(--color-fg-dark);
@@ -293,21 +293,34 @@
 
     .hero__platforms-icons {
       display: flex;
-      gap: 8px;
+      gap: 12px;
       align-items: center;
     }
 
     .hero__platforms-icons .icon {
-      width: clamp(20px, 2.5vw, 26px);
-      height: clamp(20px, 2.5vw, 26px);
+      width: clamp(44px, 3.5vw, 26px);
+      height: clamp(44px, 3.5vw, 26px);
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .hero__platforms-icons .icon svg {
-      width: 18px;
-      height: 18px;
+      width: clamp(22px, 2.5vw, 18px);
+      height: clamp(22px, 2.5vw, 18px);
+    }
+
+    @media (min-width: 1060px) {
+      .hero__platforms-icons .icon {
+        width: 26px;
+        height: 26px;
+      }
+
+      .hero__platforms-icons .icon svg {
+        width: 18px;
+        height: 18px;
+      }
     }
 
     /* ─── QUOTE SECTION ─── */
