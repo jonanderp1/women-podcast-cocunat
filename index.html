@@ -36,6 +36,10 @@
       --font-serif: 'Canela', serif;
     }
 
+    html {
+      overflow-x: hidden;
+    }
+
     body {
       font-family: var(--font-sans);
       color: var(--color-fg-dark);
@@ -742,6 +746,78 @@
       .header__logo svg {
         width: 85px;
         height: 13px;
+      }
+    }
+
+    /* ─── RESPONSIVE: CONTENT SECTIONS ─── */
+    @media (max-width: 1060px) {
+      .dark-section {
+        padding: 60px 24px 80px;
+      }
+
+      .featured-episode {
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+      }
+
+      .featured-episode__info {
+        width: 100%;
+      }
+
+      .featured-episode__image {
+        min-height: 300px;
+      }
+
+      .episode-grid {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .episode-card {
+        height: auto;
+        min-height: 360px;
+      }
+
+      .episode-number {
+        font-size: 80px;
+      }
+
+      .episode-number--small {
+        font-size: 64px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .dark-section {
+        padding: 40px 16px 60px;
+      }
+
+      .featured-episode {
+        padding: 16px;
+      }
+
+      .dark-section__mission {
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .episode-title {
+        font-size: 24px;
+      }
+
+      .episode-title--small {
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      .episode-card__thumbnail {
+        width: 140px;
+        height: 140px;
+      }
+
+      .episode-buttons {
+        flex-wrap: wrap;
       }
     }
 
