@@ -203,15 +203,19 @@
 
     .hero__image {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 140%;
       z-index: 0;
+      will-change: transform;
     }
 
     .hero__image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center top;
       animation: heroZoomOut 2s cubic-bezier(0.25, 1, 0.5, 1) both;
     }
 
@@ -233,16 +237,16 @@
     }
 
     .hero__subtitle {
-      font-size: 24px;
+      font-size: clamp(14px, 2.5vw, 24px);
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--color-fg-dark);
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: clamp(8px, 1.5vw, 16px);
     }
 
     .hero__title {
-      font-size: 105px;
+      font-size: clamp(48px, 10vw, 105px);
       font-weight: 400;
       line-height: 0.85;
       color: var(--color-fg-dark);
@@ -263,7 +267,7 @@
     }
 
     .hero__tagline {
-      font-size: 24px;
+      font-size: clamp(14px, 2.5vw, 24px);
       font-weight: 400;
       letter-spacing: 0.04em;
       color: var(--color-fg-dark);
@@ -277,7 +281,7 @@
     }
 
     .hero__platforms-label {
-      font-size: 14px;
+      font-size: clamp(10px, 1.5vw, 14px);
       font-weight: 400;
       text-transform: uppercase;
       color: var(--color-fg-dark);
@@ -290,8 +294,8 @@
     }
 
     .hero__platforms-icons .icon {
-      width: 26px;
-      height: 26px;
+      width: clamp(20px, 2.5vw, 26px);
+      height: clamp(20px, 2.5vw, 26px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -316,12 +320,13 @@
 
     .quote-section__text {
       font-family: var(--font-serif);
-      font-size: 64px;
+      font-size: clamp(28px, 5.5vw, 64px);
       font-weight: 300;
       font-style: italic;
       line-height: 1.17;
       color: var(--color-fg-dark);
       max-width: 991px;
+      padding: 0 24px;
     }
 
     .quote-section__text .word {
@@ -331,12 +336,13 @@
     }
 
     .quote-section__author {
-      font-size: 20px;
+      font-size: clamp(13px, 2vw, 20px);
       font-weight: 300;
       text-transform: uppercase;
       color: var(--color-fg-dark);
-      margin-top: 50px;
-      line-height: 31px;
+      margin-top: clamp(24px, 4vw, 50px);
+      line-height: 1.5;
+      padding: 0 24px;
       opacity: 0.15;
       transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
@@ -678,6 +684,69 @@
     .hero__tagline { animation-delay: 0.6s; }
     .hero__platforms { animation-delay: 0.8s; }
 
+    /* ─── HAMBURGER (hidden on desktop) ─── */
+    .header__hamburger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1060px) {
+      .header {
+        margin: 8px 16px 0;
+        padding: 0 16px;
+        height: 50px;
+        top: 8px;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.95);
+        margin-bottom: -58px;
+      }
+
+      .header__hamburger {
+        display: flex;
+      }
+
+      .header__nav {
+        display: none;
+      }
+
+      .header__icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .header__cart svg {
+        width: 16px;
+        height: 15px;
+      }
+
+      .header__logo svg {
+        width: 100px;
+        height: 15px;
+      }
+
+    }
+
+    @media (max-width: 500px) {
+      .header__logo {
+        position: static;
+        transform: none;
+        margin-left: 12px;
+      }
+
+      .header__logo svg {
+        width: 85px;
+        height: 13px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -695,6 +764,13 @@
   <!-- HEADER -->
   <header class="header">
     <div class="header__wrapper">
+      <button class="header__hamburger" aria-label="Open menu">
+        <svg width="16" height="12" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="12" height="0.85" rx="0.4" fill="black"/>
+          <rect x="0" y="4" width="12" height="0.85" rx="0.4" fill="black"/>
+          <rect x="5" y="8" width="7" height="0.85" rx="0.4" fill="black"/>
+        </svg>
+      </button>
       <nav class="header__nav" aria-label="Main navigation">
         <a href="#">CARA</a>
         <a href="#">CUERPO</a>
@@ -736,7 +812,7 @@
   <!-- HERO -->
   <section class="hero" data-bg-color="#ffffff">
     <div class="hero__image">
-      <img src="assets/hero-2.png" alt="Three women in elegant poses">
+      <img src="assets/hero-3.png" alt="Three women in elegant poses">
     </div>
     <div class="hero__content">
       <div class="hero__center">
@@ -924,6 +1000,28 @@
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Hero parallax effect
+    (function() {
+      const heroImage = document.querySelector('.hero__image');
+      const hero = document.querySelector('.hero');
+      if (!heroImage || !hero) return;
+
+      function updateParallax() {
+        const rect = hero.getBoundingClientRect();
+        const vh = window.innerHeight;
+        // Only apply when hero is visible
+        if (rect.bottom < 0 || rect.top > vh) return;
+        // Progress: 0 at top, 1 when hero scrolled out
+        const progress = -rect.top / (rect.height + vh);
+        // Subtle shift: image moves slower than scroll (max ~80px)
+        const translate = progress * 200;
+        heroImage.style.transform = 'translate3d(0,' + translate + 'px,0)';
+      }
+
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
+    })();
 
     // Scroll opacity reveal for quote section
     (function() {
