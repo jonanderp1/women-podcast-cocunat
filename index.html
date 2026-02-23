@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOMEN. | Un Podcast de COCUNAT</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html.lenis, html.lenis body {
+      height: auto;
+    }
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    :root {
+      --color-bg-dark: #1a1e1e;
+      --color-bg-light: #ffffff;
+      --color-fg-dark: #000000;
+      --color-fg-light: #ffffff;
+      --color-discount: #ca3d2f;
+      --color-border-subtle: rgba(255, 255, 255, 0.1);
+      --color-number: rgba(255, 255, 255, 0.5);
+      --font-sans: 'Brown', sans-serif;
+      --font-serif: 'Canela', serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-fg-dark);
+      background: var(--color-bg-light);
+      transition: background-color 0.5s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ─── PREHEADER ─── */
+    .preheader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px;
+      background: var(--color-fg-dark);
+      color: var(--color-fg-light);
+    }
+
+    .preheader__text {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .preheader__arrow {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preheader__arrow svg {
+      width: 12px;
+      height: 10px;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 65px;
+      padding: 0 32px;
+      background: rgba(255, 255, 255, 0.8);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      margin: 11px 60px 0;
+      position: sticky;
+      top: 20px;
+      z-index: 10;
+      margin-bottom: -76px;
+    }
+
+    .header__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+    }
+
+    .header__nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header__nav a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-fg-dark);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 16px;
+    }
+
+    .header__nav a:hover {
+      opacity: 0.6;
+    }
+
+    .header__logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header__right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header__right a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-fg-dark);
+      text-decoration: none;
+      line-height: 16px;
+    }
+
+    .header__right a:hover {
+      opacity: 0.6;
+    }
+
+    .header__icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .header__icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .header__cart {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .header__cart svg {
+      width: 13px;
+      height: 12.5px;
+    }
+
+    .header__cart-badge {
+      position: absolute;
+      bottom: -5px;
+      right: -4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--color-discount);
+      color: var(--color-fg-light);
+      font-size: 10px;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 12px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 32px);
+      overflow: hidden;
+    }
+
+    .hero__image {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      animation: heroZoomOut 2s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+
+    .hero__content {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero__center {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero__subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--color-fg-dark);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .hero__title {
+      font-size: 105px;
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--color-fg-dark);
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .hero__bottom {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .hero__tagline {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--color-fg-dark);
+      text-align: center;
+    }
+
+    .hero__platforms {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero__platforms-label {
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--color-fg-dark);
+    }
+
+    .hero__platforms-icons {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .hero__platforms-icons .icon {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__platforms-icons .icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ─── QUOTE SECTION ─── */
+    .quote-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 64px 32px;
+      text-align: center;
+      background: transparent;
+    }
+
+    .quote-section__text {
+      font-family: var(--font-serif);
+      font-size: 64px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.17;
+      color: var(--color-fg-dark);
+      max-width: 991px;
+    }
+
+    .quote-section__text .word {
+      display: inline;
+      opacity: 0.15;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    .quote-section__author {
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: var(--color-fg-dark);
+      margin-top: 50px;
+      line-height: 31px;
+      opacity: 0.15;
+      transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    /* ─── DARK SECTION ─── */
+    .dark-section {
+      background: transparent;
+      padding: 100px 50px 120px;
+    }
+
+    .dark-section__mission {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 31px;
+      text-transform: uppercase;
+      color: var(--color-fg-light);
+      text-align: center;
+      max-width: 670px;
+      margin: 0 auto 80px;
+    }
+
+    /* ─── FEATURED EPISODE ─── */
+    .featured-episode {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--color-border-subtle);
+      padding: 36px;
+      max-width: 1340px;
+      margin: 0 auto 40px;
+      gap: 40px;
+    }
+
+    .featured-episode__info {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      width: 438px;
+      flex-shrink: 0;
+      justify-content: space-between;
+    }
+
+    .episode-number {
+      font-family: var(--font-serif);
+      font-size: 144px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1;
+      color: var(--color-number);
+    }
+
+    .episode-number--small {
+      font-size: 104px;
+    }
+
+    .episode-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .episode-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .episode-title {
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.09;
+      color: var(--color-fg-light);
+    }
+
+    .episode-title--small {
+      font-size: 30px;
+      line-height: 38px;
+    }
+
+    .episode-author {
+      font-size: 18px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: var(--color-fg-light);
+    }
+
+    .episode-author--small {
+      font-size: 16px;
+    }
+
+    .episode-description {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    .episode-description__text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .episode-description__text {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 23px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-duration {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 23px;
+      color: var(--color-fg-light);
+    }
+
+    .episode-platforms {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .episode-platforms__label {
+      font-size: 12px;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: var(--color-fg-light);
+    }
+
+    .episode-buttons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-platform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 38px;
+      padding: 0 16px;
+      background: var(--color-bg-light);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-platform:hover {
+      opacity: 0.85;
+    }
+
+    .btn-platform__icon {
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-platform__icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-platform__label {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--color-fg-dark);
+      line-height: 16px;
+    }
+
+    .featured-episode__image {
+      flex: 1;
+      align-self: stretch;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .featured-episode__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ─── EPISODE GRID ─── */
+    .episode-grid {
+      display: flex;
+      gap: 20px;
+      max-width: 1340px;
+      margin: 0 auto;
+    }
+
+    .episode-card {
+      flex: 1;
+      border: 1px solid var(--color-border-subtle);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 460px;
+    }
+
+    .episode-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .episode-card__thumbnail {
+      width: 180px;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .episode-card__thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .episode-card__thumbnail::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .episode-card__thumbnail-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--color-fg-light);
+    }
+
+    .episode-card__thumbnail-top {
+      position: absolute;
+      top: 14px;
+      font-size: 8px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 11px;
+    }
+
+    .episode-card__thumbnail-name {
+      font-size: 19px;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .episode-card__thumbnail-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 7px;
+      font-size: 8px;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 11px;
+    }
+
+    .episode-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .episode-card__title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .episode-card__footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    /* ─── UTILITIES ─── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heroZoomOut {
+      from { transform: scale(1.2); }
+      to { transform: scale(1); }
+    }
+
+    .hero__subtitle,
+    .hero__title,
+    .hero__tagline,
+    .hero__platforms {
+      animation: fadeInUp 0.8s ease-out both;
+    }
+
+    .hero__subtitle { animation-delay: 0.2s; }
+    .hero__title { animation-delay: 0.4s; }
+    .hero__tagline { animation-delay: 0.6s; }
+    .hero__platforms { animation-delay: 0.8s; }
+
+  </style>
+</head>
+<body>
+
+  <!-- PREHEADER -->
+  <div class="preheader">
+    <span class="preheader__text">REGALA COCUNAT. HASTA -30%</span>
+    <span class="preheader__arrow">
+      <svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.854 5.354L7.354 9.854a.5.5 0 01-.708-.708L10.293 5.5H.5a.5.5 0 010-1h9.793L6.646.854a.5.5 0 01.708-.708l4.5 4.5a.5.5 0 010 .708z" fill="white"/>
+      </svg>
+    </span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__wrapper">
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="#">CARA</a>
+        <a href="#">CUERPO</a>
+        <a href="#">CABELLO</a>
+        <a href="#">PACK</a>
+        <a href="#">C. NOMAKEUP</a>
+      </nav>
+
+      <a href="#" class="header__logo" aria-label="COCUNAT">
+        <svg viewBox="0 0 134 20" width="134" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg x="0" y="0" width="17.03" height="20" viewBox="0 0 17.0315 19.9988"><path d="M10.068 17.0635C6.24295 17.2027 3.24919 14.2722 3.10005 10.2452C2.95091 6.21827 5.72096 3.07675 9.54596 2.93751C11.3883 2.87007 13.0332 3.52056 14.2658 4.65838L16.5117 2.61988C14.6255 0.838087 12.1142 -0.0908813 9.43849 0.00701927C6.75617 0.10492 4.3151 1.21664 2.5649 3.13549C0.814698 5.05651 -0.0933011 7.62151 0.00758762 10.3562C0.108476 13.0909 1.2029 15.5819 3.09127 17.3702C4.97965 19.1585 7.49529 20.0897 10.1776 19.9918C12.8512 19.8939 15.2835 18.7887 17.0315 16.8807L14.7066 14.9445C13.5574 16.2041 11.941 16.9939 10.0701 17.0613L10.068 17.0635Z" fill="black"/></svg>
+          <svg x="18.57" y="0" width="19.61" height="20" viewBox="0 0 19.6119 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.80595 0C7.12143 0 4.64307 1.02252 2.82269 2.87828C1.00231 4.73404 0 7.26205 0 10.0011C0 12.7401 1.00231 15.2681 2.82269 17.1217C4.64307 18.9775 7.12362 20 9.80595 20C12.4883 20 14.9688 18.9775 16.7892 17.1217C18.6096 15.266 19.6119 12.738 19.6119 10.0011C19.6119 7.26422 18.6096 4.73404 16.7892 2.87828C14.9688 1.02252 12.4883 0 9.80595 0ZM16.5172 9.99891C16.5172 14.0281 13.6309 17.0652 9.80595 17.0652C5.98095 17.0652 3.09465 14.0281 3.09465 9.99891C3.09465 5.96976 5.98095 2.93049 9.80595 2.93049C13.6309 2.93049 16.5172 5.96976 16.5172 9.99891Z" fill="black"/></svg>
+          <svg x="40.36" y="0" width="17.03" height="20" viewBox="0 0 17.0315 19.9988"><path d="M10.0701 17.0635C6.24514 17.2027 3.25138 14.2722 3.10224 10.2452C2.9531 6.21827 5.72315 3.07675 9.54815 2.93751C11.3905 2.87007 13.0354 3.52056 14.268 4.65838L16.5139 2.61988C14.6277 0.838087 12.1164 -0.0908813 9.43849 0.00701927C6.75617 0.10492 4.3151 1.21664 2.5649 3.13549C0.814698 5.05651 -0.0933011 7.61933 0.00758762 10.3562C0.108476 13.0909 1.2029 15.5819 3.09128 17.3702C4.97965 19.1585 7.49529 20.0897 10.1776 19.9918C12.8512 19.8939 15.2835 18.7887 17.0315 16.8807L14.7066 14.9445C13.5574 16.2041 11.941 16.9939 10.0701 17.0613V17.0635Z" fill="black"/></svg>
+          <svg x="59.99" y="0.274" width="16.31" height="19.726" viewBox="0 0 16.3067 19.7259"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.212 11.5001C13.212 13.1426 12.8524 14.2696 12.0452 15.155C11.0912 16.2102 9.70726 16.791 8.15225 16.791C6.59725 16.791 5.21551 16.2102 4.25926 15.1528C3.45215 14.2674 3.09246 13.1383 3.09246 11.4979V0H0V11.3652C0 13.7713 0.671135 15.6663 2.05507 17.1587C3.58375 18.7904 5.80549 19.7259 8.15225 19.7259C10.499 19.7259 12.723 18.7904 14.2516 17.1587C15.6334 15.6663 16.3067 13.7713 16.3067 11.3652V0H13.212V11.5022V11.5001Z" fill="black"/></svg>
+          <svg x="80.59" y="0.274" width="18" height="19.452" viewBox="0 0 17.9977 19.4518"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5765 19.4518H17.9977V0.0348091H14.653L14.7056 12.9664L1.73265 0H0.0241291L0 19.3691H3.34468L3.29424 6.39617C4.28339 7.3556 14.5938 17.5003 16.5787 19.4518H16.5765Z" fill="black"/></svg>
+          <svg x="102.04" y="0.274" width="18.41" height="19.454" viewBox="0 0 18.4034 19.4539"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.2775 0H8.12374L0 19.4539H3.23283L5.24183 14.5393H13.1331L15.1706 19.4539H18.4034L10.3192 0.104427L10.2753 0H10.2775ZM11.918 11.6045H6.48101L9.19842 5.11476L11.9158 11.6045H11.918Z" fill="black"/></svg>
+          <svg x="120.45" y="0.274" width="13.55" height="19.452" viewBox="0 0 13.5542 19.4518"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V2.93267H5.23087V19.4518H8.32332V2.93267H13.5542V0H0Z" fill="black"/></svg>
+        </svg>
+      </a>
+
+      <div class="header__right">
+        <a href="#">TRIAL</a>
+        <a href="#">CLUB</a>
+        <div class="header__icon" aria-label="Search">
+          <svg viewBox="0 0 13.0141 13.0141" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.8676 12.1601L9.73819 9.03131C10.6452 7.94238 11.0975 6.54568 11.001 5.13177C10.9044 3.71786 10.2665 2.3956 9.2199 1.44005C8.1733 0.484494 6.79859 -0.0307768 5.38176 0.00142314C3.96492 0.0336231 2.61504 0.610815 1.61293 1.61293C0.610815 2.61504 0.0336231 3.96492 0.00142314 5.38176C-0.0307768 6.79859 0.484494 8.1733 1.44005 9.2199C2.3956 10.2665 3.71786 10.9044 5.13177 11.001C6.54568 11.0975 7.94238 10.6452 9.03131 9.73819L12.1601 12.8676C12.2065 12.914 12.2617 12.9509 12.3224 12.976C12.3831 13.0012 12.4481 13.0141 12.5138 13.0141C12.5795 13.0141 12.6446 13.0012 12.7053 12.976C12.766 12.9509 12.8211 12.914 12.8676 12.8676C12.914 12.8211 12.9509 12.766 12.976 12.7053C13.0012 12.6446 13.0141 12.5795 13.0141 12.5138C13.0141 12.4481 13.0012 12.3831 12.976 12.3224C12.9509 12.2617 12.914 12.2065 12.8676 12.1601ZM1.01381 5.51381C1.01381 4.6238 1.27773 3.75377 1.7722 3.01375C2.26667 2.27373 2.96947 1.69695 3.79174 1.35636C4.61401 1.01576 5.51881 0.926647 6.39172 1.10028C7.26464 1.27391 8.06646 1.7025 8.6958 2.33183C9.32513 2.96117 9.75372 3.76299 9.92735 4.63591C10.101 5.50882 10.0119 6.41362 9.67127 7.23589C9.33068 8.05816 8.7539 8.76096 8.01388 9.25543C7.27386 9.74989 6.40383 10.0138 5.51381 10.0138C4.32075 10.0125 3.17692 9.53796 2.3333 8.69433C1.48967 7.85071 1.01514 6.70688 1.01381 5.51381Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="header__cart" aria-label="Shopping cart">
+          <svg viewBox="0 0 13 12.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3H9.5a3 3 0 00-6 0H1a1 1 0 00-1 1v7.5a1 1 0 001 1h11a1 1 0 001-1V4a1 1 0 00-1-1zM6.5 1A2.5 2.5 0 019 3H4a2.5 2.5 0 012.5-2zm5.5 10.5H1V4h2.5v1a.5.5 0 001 0V4h4v1a.5.5 0 001 0V4H12v7.5z" fill="black"/>
+          </svg>
+          <span class="header__cart-badge">4</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" data-bg-color="#ffffff">
+    <div class="hero__image">
+      <img src="assets/hero-2.png" alt="Three women in elegant poses">
+    </div>
+    <div class="hero__content">
+      <div class="hero__center">
+        <p class="hero__subtitle">UN PODCAST DE COCUNAT</p>
+        <h1 class="hero__title">WOMEN.</h1>
+      </div>
+      <div class="hero__bottom">
+        <p class="hero__tagline">VOCES CON CRITERIO</p>
+        <div class="hero__platforms">
+        <span class="hero__platforms-label">DISPONIBLE EN</span>
+        <div class="hero__platforms-icons">
+          <span class="icon">
+            <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618l-.001.002-.002-.002-.005-.009-.003-.005.002.001-.002-.002-.005-.009-.002.002-.002-.002-.003.002-.002-.002-.001.002-.002-.002.001.002-.002-.002zM15.343 11.958a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098v-.002l.002-.003-.002.003v-.003l-.002.002v-.002l.002.002v-.416zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296v-.416z" fill="black"/>
+            </svg>
+          </span>
+          <span class="icon">
+            <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75v.287z" fill="black"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE SECTION -->
+  <section class="quote-section" data-bg-color="#ffffff">
+    <p class="quote-section__text">Porque han desafiado l&iacute;mites, han hecho posible lo imposible. Cada una de ellas tiene una voz que merece ser escuchada</p>
+    <p class="quote-section__author">Sara Werner | CEO &amp; Co-Founder de COCUNAT</p>
+  </section>
+
+  <!-- DARK SECTION -->
+  <section class="dark-section" data-bg-color="#1a1e1e">
+    <p class="dark-section__mission">ALZAMOS LA VOZ DE MUJERES EXTRAORDINARIAS QUE, DE UNA FORMA U OTRA, EST&Aacute;N CAMBIANDO EL MUNDO.</p>
+
+    <!-- FEATURED EPISODE 01 -->
+    <article class="featured-episode">
+      <div class="featured-episode__info">
+        <span class="episode-number">01</span>
+        <div class="episode-content">
+          <div class="episode-title-block">
+            <h2 class="episode-title">"Nunca es tarde. Tampoco a los 60."</h2>
+            <p class="episode-author">SOF&Iacute;A RUIZ DEL CUETO</p>
+          </div>
+          <div class="episode-description">
+            <div class="episode-description__text-block">
+              <p class="episode-description__text">Build a clear roadmap with tailored strategy sessions that align your financial goals with practical, actionable steps. Uncovers opportunities and challenges, giving you the clarity to move forward.</p>
+              <p class="episode-duration">1h 13m</p>
+            </div>
+            <div class="episode-platforms">
+              <span class="episode-platforms__label">DISPONIBLE EN</span>
+              <div class="episode-buttons">
+                <a href="#" class="btn-platform">
+                  <span class="btn-platform__icon">
+                    <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
+                    </svg>
+                  </span>
+                  <span class="btn-platform__label">SPOTIFY</span>
+                </a>
+                <a href="#" class="btn-platform">
+                  <span class="btn-platform__icon">
+                    <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
+                    </svg>
+                  </span>
+                  <span class="btn-platform__label">YOUTUBE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="featured-episode__image">
+        <img src="assets/episode-01.png" alt="Pino Montesdeoca - Modelo y Actriz">
+      </div>
+    </article>
+
+    <!-- EPISODE GRID -->
+    <div class="episode-grid">
+      <!-- EPISODE 02 -->
+      <article class="episode-card">
+        <div class="episode-card__header">
+          <span class="episode-number episode-number--small">02</span>
+          <div class="episode-card__thumbnail">
+            <img src="assets/episode-02.png" alt="Sofia Ruiz del Cueto">
+            <div class="episode-card__thumbnail-overlay">
+              <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+              <span class="episode-card__thumbnail-name">SOF&Iacute;A<br>RUIZ DEL CUETO</span>
+              <div class="episode-card__thumbnail-bottom">
+                <span>EP 1</span>
+                <span>M&eacute;dica Est&eacute;tica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="episode-card__body">
+          <div class="episode-card__title-block">
+            <h3 class="episode-title episode-title--small">"No trato arrugas, trato personas"</h3>
+            <p class="episode-author episode-author--small">SOF&Iacute;A RUIZ DEL CUETO | M&eacute;dica Est&eacute;tica</p>
+          </div>
+          <div class="episode-card__footer">
+            <span class="episode-duration">1h 13m</span>
+            <div class="episode-buttons">
+              <a href="#" class="btn-platform">
+                <span class="btn-platform__icon">
+                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
+                  </svg>
+                </span>
+                <span class="btn-platform__label">SPOTIFY</span>
+              </a>
+              <a href="#" class="btn-platform">
+                <span class="btn-platform__icon">
+                  <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
+                  </svg>
+                </span>
+                <span class="btn-platform__label">YOUTUBE</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- EPISODE 03 -->
+      <article class="episode-card">
+        <div class="episode-card__header">
+          <span class="episode-number episode-number--small">03</span>
+          <div class="episode-card__thumbnail">
+            <img src="assets/episode-03.png" alt="Marta Marce">
+            <div class="episode-card__thumbnail-overlay">
+              <span class="episode-card__thumbnail-top">WOMEN BY COCUNAT</span>
+              <span class="episode-card__thumbnail-name">MARTA<br>MARC&Egrave;</span>
+              <div class="episode-card__thumbnail-bottom">
+                <span>EP 1</span>
+                <span>M&eacute;dica Est&eacute;tica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="episode-card__body">
+          <div class="episode-card__title-block">
+            <h3 class="episode-title episode-title--small">"A los 26 me dijeron: No vas a ser madre y no vas a menstruar m&aacute;s"</h3>
+            <p class="episode-author episode-author--small">MARTA MARC&Egrave; | Nutricionista y Experta en Menopausia</p>
+          </div>
+          <div class="episode-card__footer">
+            <span class="episode-duration">1h 13m</span>
+            <div class="episode-buttons">
+              <a href="#" class="btn-platform">
+                <span class="btn-platform__icon">
+                  <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.563 0a10.563 10.563 0 100 21.125 10.563 10.563 0 000-21.125zm3.155 14.802a.687.687 0 01-1.098.059 7.12 7.12 0 00-4.115 0 .687.687 0 01-1.083-.94 8.745 8.745 0 016.27 0c.192.1.334.273.398.479.064.206.043.428-.058.618zm1.625-2.844a.688.688 0 01-1.099.06 9.876 9.876 0 00-7.362 0 .688.688 0 01-1.086-.94 11.25 11.25 0 018.89 0c.094.05.178.119.246.201a.688.688 0 01-.589 1.098zm1.625-2.844a.688.688 0 01-1.1.06 14.07 14.07 0 00-10.61 0 .688.688 0 01-1.1-.94 15.44 15.44 0 0112.14 0 .688.688 0 01.67 1.296z" fill="black"/>
+                  </svg>
+                </span>
+                <span class="btn-platform__label">SPOTIFY</span>
+              </a>
+              <a href="#" class="btn-platform">
+                <span class="btn-platform__icon">
+                  <svg viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.174 2.998a3.37 3.37 0 00-1.472-1.665C17.221-.012 11.68 0 11.375 0S5.53-.012 2.048 1.333A3.37 3.37 0 00.576 2.998C.313 4.012 0 5.864 0 8.938c0 3.073.313 4.925.576 5.939a3.37 3.37 0 002.472 2.667c3.335 1.287 8.556 1.331 9.26 1.331h.134c.705 0 5.928-.044 9.261-1.331a3.37 3.37 0 002.471-2.667c.263-1.015.576-2.866.576-5.94 0-3.073-.313-4.925-.576-5.939zM14.685 9.6l-4.063 2.843a.688.688 0 01-1.278-.375V6.094a.688.688 0 011.278-.375l4.063 2.844a.688.688 0 010 .75z" fill="black"/>
+                  </svg>
+                </span>
+                <span class="btn-platform__label">YOUTUBE</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+    // Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Scroll opacity reveal for quote section
+    (function() {
+      const quoteText = document.querySelector('.quote-section__text');
+      const quoteAuthor = document.querySelector('.quote-section__author');
+      if (!quoteText) return;
+
+      // Split text into word spans
+      const text = quoteText.textContent;
+      quoteText.innerHTML = text.split(/\s+/).map(word =>
+        '<span class="word">' + word + '</span>'
+      ).join(' ');
+
+      const words = quoteText.querySelectorAll('.word');
+      const totalWords = words.length;
+
+      function onScroll() {
+        const section = quoteText.closest('.quote-section');
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight;
+
+        // Progress: 0 when section enters bottom, 1 when section center reaches viewport center
+        const sectionCenter = rect.top + rect.height / 2;
+        const progress = 1 - Math.max(0, Math.min(1, (sectionCenter - vh * 0.3) / (vh * 0.7)));
+
+        // Map progress to a floating reveal point across words
+        // The "cursor" moves through the words, and each word fades
+        // in smoothly based on its distance from the cursor
+        const spread = 5; // how many words are in the fade gradient
+        const revealPoint = progress * (totalWords + spread);
+
+        words.forEach((word, i) => {
+          // How far this word is from the reveal point
+          const distance = revealPoint - i;
+          // Normalize: 0 = not yet reached, 1 = fully revealed
+          const wordProgress = Math.max(0, Math.min(1, distance / spread));
+          // Ease the progress for a smoother curve
+          const eased = wordProgress * wordProgress * (3 - 2 * wordProgress); // smoothstep
+          const opacity = 0.15 + eased * 0.85;
+          word.style.opacity = opacity;
+        });
+
+        // Reveal author smoothly after all words
+        if (quoteAuthor) {
+          const authorDistance = revealPoint - totalWords;
+          const authorProgress = Math.max(0, Math.min(1, authorDistance / 3));
+          const authorEased = authorProgress * authorProgress * (3 - 2 * authorProgress);
+          quoteAuthor.style.opacity = 0.15 + authorEased * 0.85;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Background color change on scroll (CSS transition handles the smooth effect)
+    (function() {
+      const sections = document.querySelectorAll('[data-bg-color]');
+      if (sections.length < 2) return;
+
+      function updateBg() {
+        const vh = window.innerHeight;
+        // Find which section occupies the middle of the viewport
+        for (let i = sections.length - 1; i >= 0; i--) {
+          if (sections[i].getBoundingClientRect().top < vh * 0.5) {
+            document.body.style.backgroundColor = sections[i].dataset.bgColor;
+            return;
+          }
+        }
+        document.body.style.backgroundColor = sections[0].dataset.bgColor;
+      }
+
+      window.addEventListener('scroll', updateBg, { passive: true });
+      updateBg();
+    })();
+  </script>
+</body>
+</html>
