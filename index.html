@@ -368,6 +368,7 @@
       color: var(--color-fg-dark);
       max-width: 991px;
       padding: 0 24px;
+      transition: color 0.5s ease;
     }
 
     .quote-section__text .word {
@@ -376,11 +377,20 @@
       transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
+    .quote-section.dark-mode .quote-section__text {
+      color: var(--color-fg-light);
+    }
+
+    .quote-section.dark-mode .quote-section__author {
+      color: var(--color-fg-light);
+    }
+
     .quote-section__author {
       font-size: clamp(13px, 2vw, 20px);
       font-weight: 300;
       text-transform: uppercase;
       color: var(--color-fg-dark);
+      transition: color 0.5s ease, opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
       margin-top: clamp(24px, 4vw, 50px);
       line-height: 1.5;
       padding: 0 24px;
@@ -1191,22 +1201,22 @@
     // Background color change on scroll (CSS transition handles the smooth effect)
     (function() {
       const sections = document.querySelectorAll('[data-bg-color]');
+      const quoteSection = document.querySelector('.quote-section');
       if (sections.length < 2) return;
 
       function updateBg() {
-        // Change bg only when previous section's bottom leaves the viewport
-        for (let i = sections.length - 1; i >= 0; i--) {
-          if (i === 0) {
-            document.body.style.backgroundColor = sections[0].dataset.bgColor;
-            return;
-          }
-          const prevBottom = sections[i - 1].getBoundingClientRect().bottom;
-          if (prevBottom <= 0) {
-            document.body.style.backgroundColor = sections[i].dataset.bgColor;
-            return;
-          }
+        const vh = window.innerHeight;
+        const quoteRect = quoteSection.getBoundingClientRect();
+        const quoteProgress = 1 - (quoteRect.bottom / (vh + quoteRect.height));
+
+        // When 60% of the quote section has scrolled past, switch to dark
+        if (quoteProgress > 0.6) {
+          document.body.style.backgroundColor = '#1a1e1e';
+          quoteSection.classList.add('dark-mode');
+        } else {
+          document.body.style.backgroundColor = '#ffffff';
+          quoteSection.classList.remove('dark-mode');
         }
-        document.body.style.backgroundColor = sections[0].dataset.bgColor;
       }
 
       window.addEventListener('scroll', updateBg, { passive: true });
