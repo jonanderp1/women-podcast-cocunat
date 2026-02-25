@@ -719,9 +719,16 @@
       border-top-color: rgba(255, 255, 255, 0.3);
     }
 
-    /* ─── SEASON HEADING ─── */
-    .season-heading {
+    /* ─── SEASON HEADER (heading + "Ver todos" link) ─── */
+    .season-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       margin: 0 0 24px;
+    }
+
+    .season-heading {
+      margin: 0;
       font-size: 16px;
       font-weight: 400;
       text-transform: uppercase;
@@ -733,6 +740,19 @@
     .dark-section.is-dark .season-heading {
       color: var(--color-fg-light);
     }
+
+    .season-header__link {
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-fg-dark);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.5s ease;
+    }
+    .season-header__link:hover { text-decoration: underline; }
+    .dark-section.is-dark .season-header__link { color: var(--color-fg-light); }
 
     /* ─── FADE IN FROM BOTTOM ─── */
     .fade-in-up {
@@ -1513,7 +1533,10 @@
   <section class="dark-section" data-bg-color="#1a1e1e">
     <!-- TEMPORADA 2 -->
     <hr class="season-divider fade-in-up">
-    <h2 class="season-heading fade-in-up">TEMPORADA 2</h2>
+    <div class="season-header fade-in-up">
+      <h2 class="season-heading">TEMPORADA 2</h2>
+      <a href="episodios.html" class="season-header__link">Ver todos &rarr;</a>
+    </div>
 
     <div class="carousel carousel--banners fade-in-up" >
       <!-- Banner 1 — Pino Montesdeoca -->
@@ -1600,7 +1623,10 @@
 
     <!-- TEMPORADA 1 -->
     <hr class="season-divider fade-in-up">
-    <h2 class="season-heading fade-in-up">TEMPORADA 1</h2>
+    <div class="season-header fade-in-up">
+      <h2 class="season-heading">TEMPORADA 1</h2>
+      <a href="episodios.html" class="season-header__link">Ver todos &rarr;</a>
+    </div>
 
     <div class="carousel carousel--cards fade-in-up">
       <!-- EP 1 — Sof&iacute;a Ruiz del Cueto -->
