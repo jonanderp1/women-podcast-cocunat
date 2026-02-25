@@ -1453,6 +1453,10 @@
       let startX, startTranslate;
       let touchTimeout;
       let currentX = 0;
+      let trackVel = [];
+      let velX = 0;
+      let lastDragX = 0;
+      let isMomentum = false;
 
       /* ── Crear track interior ── */
       const track = document.createElement('div');
@@ -1490,9 +1494,18 @@
         track.style.transform = 'translateX(' + x + 'px)';
       }
 
+      /* ── Momentum after drag ── */
+      function momentum() {
+        if (!isMomentum) return;
+        velX *= 0.95;
+        if (Math.abs(velX) <= 0.5) { isMomentum = false; return; }
+        setPos(currentX + velX);
+        requestAnimationFrame(momentum);
+      }
+
       /* ── Auto-scroll ── */
       function tick() {
-        if (!paused && !isDown) {
+        if (!paused && !isDown && !isMomentum) {
           setPos(currentX - speed);
         }
         requestAnimationFrame(tick);
@@ -1502,30 +1515,47 @@
       /* ── Pause on hover (desktop) ── */
       gallery.addEventListener('mouseenter', () => { paused = true; });
       gallery.addEventListener('mouseleave', () => {
-        paused = false;
         if (isDown) {
           isDown = false;
           gallery.classList.remove('is-dragging');
+          if (trackVel.length) {
+            velX = trackVel.reduce((a, b) => a + b, 0) / trackVel.length;
+            isMomentum = true;
+            requestAnimationFrame(momentum);
+          }
         }
+        paused = false;
       });
 
       /* ── Touch: drag + pause (mobile) ── */
       gallery.addEventListener('touchstart', e => {
         clearTimeout(touchTimeout);
+        isMomentum = false;
         paused = true;
         isDown = true;
         startX = e.touches[0].clientX;
+        lastDragX = startX;
         startTranslate = currentX;
+        trackVel = [];
       }, { passive: true });
 
       gallery.addEventListener('touchmove', e => {
         if (!isDown) return;
-        const diff = e.touches[0].clientX - startX;
+        const x = e.touches[0].clientX;
+        trackVel.push(x - lastDragX);
+        if (trackVel.length > 5) trackVel.shift();
+        lastDragX = x;
+        const diff = x - startX;
         setPos(startTranslate + diff);
       }, { passive: true });
 
       gallery.addEventListener('touchend', () => {
         isDown = false;
+        if (trackVel.length) {
+          velX = trackVel.reduce((a, b) => a + b, 0) / trackVel.length;
+          isMomentum = true;
+          requestAnimationFrame(momentum);
+        }
         if (!isMobile) {
           touchTimeout = setTimeout(() => { paused = false; }, 800);
         }
@@ -1533,19 +1563,31 @@
 
       /* ── Drag to scroll (desktop) ── */
       gallery.addEventListener('mousedown', e => {
+        isMomentum = false;
         isDown = true;
         gallery.classList.add('is-dragging');
         startX = e.clientX;
+        lastDragX = startX;
         startTranslate = currentX;
+        trackVel = [];
       });
       gallery.addEventListener('mouseup', () => {
         isDown = false;
         gallery.classList.remove('is-dragging');
+        if (trackVel.length) {
+          velX = trackVel.reduce((a, b) => a + b, 0) / trackVel.length;
+          isMomentum = true;
+          requestAnimationFrame(momentum);
+        }
       });
       gallery.addEventListener('mousemove', e => {
         if (!isDown) return;
         e.preventDefault();
-        const diff = e.clientX - startX;
+        const x = e.clientX;
+        trackVel.push(x - lastDragX);
+        if (trackVel.length > 5) trackVel.shift();
+        lastDragX = x;
+        const diff = x - startX;
         setPos(startTranslate + diff);
       });
     });
