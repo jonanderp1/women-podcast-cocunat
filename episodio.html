@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T2EP1 - Pino Montesdeoca | WOMEN by COCUNAT</title>
+  <style>
+    @font-face {
+      font-family: 'Brown';
+      src: url('assets/fonts/Brown-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Brown';
+      src: url('assets/fonts/Brown-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Canela';
+      src: url('assets/fonts/Canela-LightItalic.ttf') format('truetype');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg-dark: #1a1e1e;
+      --color-bg-light: #ffffff;
+      --color-fg-dark: #000000;
+      --color-fg-light: #ffffff;
+      --color-discount: #ca3d2f;
+      --font-sans: 'Brown', sans-serif;
+      --font-serif: 'Canela', serif;
+    }
+
+    html, body {
+      overflow-x: clip;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-fg-dark);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── PREHEADER ─── */
+    .preheader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px;
+      background: var(--color-fg-dark);
+      color: var(--color-fg-light);
+    }
+
+    .preheader__text {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .preheader__arrow {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preheader__arrow svg {
+      width: 12px;
+      height: 10px;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 65px;
+      padding: 0 32px;
+      background: rgba(255, 255, 255, 0.8);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      margin: 11px 50px 0;
+      position: sticky;
+      top: 20px;
+      z-index: 10;
+      margin-bottom: -76px;
+    }
+
+    .header__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+    }
+
+    .header__nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header__nav a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-fg-dark);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      line-height: 16px;
+    }
+
+    .header__nav a:hover {
+      opacity: 0.6;
+    }
+
+    .header__logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header__right {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .header__right a {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--color-fg-dark);
+      text-decoration: none;
+      line-height: 16px;
+    }
+
+    .header__right a:hover {
+      opacity: 0.6;
+    }
+
+    .header__icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .header__icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .header__cart {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .header__cart svg {
+      width: 13px;
+      height: 12.5px;
+    }
+
+    .header__cart-badge {
+      position: absolute;
+      bottom: -5px;
+      right: -4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--color-discount);
+      color: var(--color-fg-light);
+      font-size: 10px;
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 12px;
+    }
+
+    .header__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    /* ─── VIDEO HERO ─── */
+    .video-hero {
+      max-width: 831px;
+      margin: 100px auto 0;
+      padding: 0 24px;
+    }
+
+    .video-hero__wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-hero__wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ─── EPISODE INFO ─── */
+    .episode-info {
+      max-width: 700px;
+      margin: 48px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .episode-info__title {
+      font-size: 28px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .episode-info__meta {
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .episode-info__desc {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 20px;
+      text-align: center;
+      max-width: 700px;
+    }
+
+    /* ─── FADE IN FROM BOTTOM ─── */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── PHOTO GALLERY (carousel) ─── */
+    .photo-gallery {
+      overflow: hidden;
+      margin: 48px 0;
+      cursor: grab;
+    }
+    .photo-gallery.is-dragging { cursor: grabbing; }
+
+    .photo-gallery__track {
+      display: flex;
+      gap: 8px;
+      will-change: transform;
+    }
+
+    .photo-gallery picture {
+      flex-shrink: 0;
+      height: 374px;
+    }
+
+    .photo-gallery__img {
+      height: 100%;
+      width: auto;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ─── EPISODE QUOTE ─── */
+    .episode-quote {
+      max-width: 796px;
+      margin: 64px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .episode-quote__text {
+      font-family: var(--font-sans);
+      font-size: 40px;
+      font-weight: 300;
+      font-style: normal;
+      line-height: 1.17;
+      margin-bottom: 20px;
+    }
+
+    .episode-quote__author {
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    /* ─── CHAPTERS ─── */
+    .chapters {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .chapters__title {
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .chapters__list {
+      list-style: none;
+    }
+
+    .chapters__item {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 30px;
+    }
+
+    .chapters__time {
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ─── SPOTIFY SECTION ─── */
+    .spotify-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .spotify-section__title {
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .spotify-section__embed {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .spotify-section__embed iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+
+    /* ─── RESPONSIVE: HEADER ─── */
+    @media (max-width: 1060px) {
+      .header {
+        margin: 8px 16px 0;
+        padding: 0 16px;
+        height: 50px;
+        top: 8px;
+        margin-bottom: -58px;
+      }
+
+      .header__hamburger {
+        display: flex;
+      }
+
+      .header__nav {
+        display: none;
+      }
+
+      .header__icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .header__cart svg {
+        width: 16px;
+        height: 15px;
+      }
+
+      .header__logo svg {
+        width: 100px;
+        height: 15px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .header__logo {
+        position: static;
+        transform: none;
+        margin-left: 12px;
+      }
+
+      .header__logo svg {
+        width: 85px;
+        height: 13px;
+      }
+    }
+
+    /* ─── RESPONSIVE: CONTENT ─── */
+    @media (max-width: 768px) {
+      .video-hero {
+        padding: 0 16px;
+        margin-top: 72px;
+      }
+
+      .episode-info {
+        padding: 0 16px;
+      }
+
+      .episode-info__title {
+        font-size: 22px;
+      }
+
+      .episode-info__meta {
+        font-size: 16px;
+      }
+
+      .photo-gallery__track {
+        gap: 4px;
+      }
+
+      .photo-gallery picture {
+        height: 280px;
+      }
+
+      .episode-quote {
+        margin: 48px auto;
+        padding: 0 16px;
+      }
+
+      .episode-quote__text {
+        font-size: 28px;
+        font-weight: 500;
+      }
+
+      .episode-quote__author {
+        font-size: 14px;
+      }
+
+      .chapters {
+        padding: 0 16px 48px;
+      }
+
+      .chapters__item {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      .spotify-section {
+        padding: 0 16px 60px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .episode-info__title {
+        font-size: 20px;
+      }
+
+      .episode-info__desc {
+        font-size: 14px;
+      }
+
+      .photo-gallery picture {
+        height: 280px;
+      }
+
+      .chapters__title {
+        font-size: 20px;
+      }
+
+      .spotify-section__title {
+        font-size: 20px;
+      }
+    }
+
+    /* ─── T1 Carousel Section ─── */
+    .t1-section {
+      background: #1a1e1e;
+      padding: 40px 50px 60px;
+      color: #fff;
+    }
+
+    .t1-section .season-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      margin: 0 0 24px;
+    }
+
+    .t1-section .season-heading {
+      margin: 0 0 24px;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #fff;
+    }
+
+    .t1-section .carousel {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      cursor: grab;
+      padding: 0 50px;
+      margin: 0 -50px;
+    }
+    .t1-section .carousel::-webkit-scrollbar { display: none; }
+    .t1-section .carousel.is-dragging { cursor: grabbing; }
+    .t1-section .carousel.is-dragging a,
+    .t1-section .carousel.is-dragging button { pointer-events: none; }
+
+    .t1-section .carousel > * {
+      flex: 0 0 360px;
+    }
+
+    .card-mini {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 360 / 499;
+    }
+
+    .card-mini__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.4s ease;
+    }
+
+    picture.card-mini__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .card-mini[data-href] {
+      cursor: pointer;
+    }
+
+    .card-mini:hover .card-mini__bg {
+      transform: scale(1.05);
+    }
+
+    .card-mini::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.14);
+      pointer-events: none;
+    }
+
+    .card-mini__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 8px;
+      color: #fff;
+    }
+
+    .card-mini__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .card-mini__ep,
+    .card-mini__brand {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .card-mini__body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-mini__profession {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .card-mini__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 16px;
+    }
+
+    .card-mini__name,
+    .card-mini__date {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .card-mini__date {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1060px) {
+      .t1-section {
+        padding: 40px 24px 60px;
+      }
+
+      .t1-section .carousel {
+        padding: 0 24px;
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+
+      .t1-section .carousel > * {
+        flex: 0 0 280px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .t1-section .carousel > * {
+        flex: 0 0 160px;
+      }
+
+      .card-mini {
+        aspect-ratio: 160 / 207;
+      }
+
+      .card-mini__ep,
+      .card-mini__brand {
+        font-size: 10px;
+      }
+
+      .card-mini__profession {
+        font-size: 16px;
+      }
+
+      .card-mini__footer {
+        padding-top: 12px;
+      }
+
+      .card-mini__name,
+      .card-mini__date {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .t1-section {
+        padding: 40px 16px 60px;
+      }
+
+      .t1-section .carousel {
+        padding: 0 16px;
+        margin-left: -16px;
+        margin-right: -16px;
+      }
+
+      .t1-section .carousel > * {
+        flex: 0 0 160px;
+      }
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      padding: 60px 0 40px;
+      font-family: 'Brown', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: #000;
+      background: #F6F4F4;
+    }
+
+    .footer__newsletter {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .footer__newsletter-title {
+      font-family: 'Canela', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 24px;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .footer__newsletter-desc {
+      color: #666;
+      font-size: 14px;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    .footer__newsletter-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .footer__newsletter-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: 'Brown', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: 12px;
+      outline: none;
+    }
+
+    .footer__newsletter-input::placeholder {
+      color: #999;
+    }
+
+    .footer__newsletter-input:focus {
+      border-color: #000;
+    }
+
+    .footer__newsletter-btn {
+      width: 100%;
+      padding: 14px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Brown', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .footer__newsletter-btn:hover {
+      background: #333;
+    }
+
+    .footer__columns {
+      display: flex;
+      justify-content: center;
+      gap: 120px;
+      padding: 0 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer__col {
+      flex: 1;
+    }
+
+    .footer__col-title {
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .footer__col-list {
+      list-style: none;
+    }
+
+    .footer__col-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer__col-list a {
+      color: #000;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s;
+    }
+
+    .footer__col-list a:hover {
+      opacity: 0.6;
+    }
+
+    .footer__schedule {
+      font-size: 11px;
+      font-style: italic;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .footer__bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer__social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer__social-link {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .footer__social-link:hover {
+      opacity: 0.6;
+    }
+
+    .footer__social-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer__copyright {
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 0.04em;
+      margin-top: 16px;
+    }
+
+    .footer__innvierte {
+      position: absolute;
+      right: 40px;
+      bottom: 0;
+      text-align: right;
+    }
+
+    .footer__innvierte-text {
+      font-size: 10px;
+      color: #666;
+      max-width: 280px;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .footer__innvierte-logo {
+      height: 40px;
+    }
+
+    @media (max-width: 1060px) {
+      .footer__columns {
+        gap: 80px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .site-footer {
+        padding: 40px 0 30px;
+      }
+
+      .footer__newsletter {
+        padding: 0 20px;
+      }
+
+      .footer__newsletter-title {
+        font-size: 22px;
+      }
+
+      .footer__newsletter-desc {
+        font-size: 13px;
+      }
+
+      .footer__newsletter-form {
+        max-width: 100%;
+      }
+
+      .footer__columns {
+        gap: 40px;
+        padding: 0 20px;
+        justify-content: flex-start;
+      }
+
+      .footer__col-list a {
+        font-size: 12px;
+      }
+
+      .footer__col-title {
+        font-size: 13px;
+      }
+
+      .footer__schedule {
+        font-size: 10px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .footer__innvierte {
+        position: static;
+        text-align: right;
+        align-self: flex-end;
+        margin-bottom: 24px;
+      }
+
+      .footer__social {
+        order: 2;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- PREHEADER -->
+  <div class="preheader">
+    <span class="preheader__text">REGALA COCUNAT. HASTA -30%</span>
+    <span class="preheader__arrow">
+      <svg viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.854 5.354L7.354 9.854a.5.5 0 01-.708-.708L10.293 5.5H.5a.5.5 0 010-1h9.793L6.646.854a.5.5 0 01.708-.708l4.5 4.5a.5.5 0 010 .708z" fill="white"/>
+      </svg>
+    </span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__wrapper">
+      <button class="header__hamburger" aria-label="Open menu">
+        <svg width="16" height="12" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="12" height="0.85" rx="0.4" fill="black"/>
+          <rect x="0" y="4" width="12" height="0.85" rx="0.4" fill="black"/>
+          <rect x="5" y="8" width="7" height="0.85" rx="0.4" fill="black"/>
+        </svg>
+      </button>
+      <nav class="header__nav" aria-label="Main navigation">
+        <a href="#">CARA</a>
+        <a href="#">CUERPO</a>
+        <a href="#">CABELLO</a>
+        <a href="#">PACK</a>
+        <a href="#">C. NOMAKEUP</a>
+      </nav>
+
+      <a href="index.html" class="header__logo" aria-label="COCUNAT">
+        <svg viewBox="0 0 134 20" width="134" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg x="0" y="0" width="17.03" height="20" viewBox="0 0 17.0315 19.9988"><path d="M10.068 17.0635C6.24295 17.2027 3.24919 14.2722 3.10005 10.2452C2.95091 6.21827 5.72096 3.07675 9.54596 2.93751C11.3883 2.87007 13.0332 3.52056 14.2658 4.65838L16.5117 2.61988C14.6255 0.838087 12.1142 -0.0908813 9.43849 0.00701927C6.75617 0.10492 4.3151 1.21664 2.5649 3.13549C0.814698 5.05651 -0.0933011 7.62151 0.00758762 10.3562C0.108476 13.0909 1.2029 15.5819 3.09127 17.3702C4.97965 19.1585 7.49529 20.0897 10.1776 19.9918C12.8512 19.8939 15.2835 18.7887 17.0315 16.8807L14.7066 14.9445C13.5574 16.2041 11.941 16.9939 10.0701 17.0613L10.068 17.0635Z" fill="black"/></svg>
+          <svg x="18.57" y="0" width="19.61" height="20" viewBox="0 0 19.6119 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.80595 0C7.12143 0 4.64307 1.02252 2.82269 2.87828C1.00231 4.73404 0 7.26205 0 10.0011C0 12.7401 1.00231 15.2681 2.82269 17.1217C4.64307 18.9775 7.12362 20 9.80595 20C12.4883 20 14.9688 18.9775 16.7892 17.1217C18.6096 15.266 19.6119 12.738 19.6119 10.0011C19.6119 7.26422 18.6096 4.73404 16.7892 2.87828C14.9688 1.02252 12.4883 0 9.80595 0ZM16.5172 9.99891C16.5172 14.0281 13.6309 17.0652 9.80595 17.0652C5.98095 17.0652 3.09465 14.0281 3.09465 9.99891C3.09465 5.96976 5.98095 2.93049 9.80595 2.93049C13.6309 2.93049 16.5172 5.96976 16.5172 9.99891Z" fill="black"/></svg>
+          <svg x="40.36" y="0" width="17.03" height="20" viewBox="0 0 17.0315 19.9988"><path d="M10.0701 17.0635C6.24514 17.2027 3.25138 14.2722 3.10224 10.2452C2.9531 6.21827 5.72315 3.07675 9.54815 2.93751C11.3905 2.87007 13.0354 3.52056 14.268 4.65838L16.5139 2.61988C14.6277 0.838087 12.1164 -0.0908813 9.43849 0.00701927C6.75617 0.10492 4.3151 1.21664 2.5649 3.13549C0.814698 5.05651 -0.0933011 7.61933 0.00758762 10.3562C0.108476 13.0909 1.2029 15.5819 3.09128 17.3702C4.97965 19.1585 7.49529 20.0897 10.1776 19.9918C12.8512 19.8939 15.2835 18.7887 17.0315 16.8807L14.7066 14.9445C13.5574 16.2041 11.941 16.9939 10.0701 17.0613V17.0635Z" fill="black"/></svg>
+          <svg x="59.99" y="0.274" width="16.31" height="19.726" viewBox="0 0 16.3067 19.7259"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.212 11.5001C13.212 13.1426 12.8524 14.2696 12.0452 15.155C11.0912 16.2102 9.70726 16.791 8.15225 16.791C6.59725 16.791 5.21551 16.2102 4.25926 15.1528C3.45215 14.2674 3.09246 13.1383 3.09246 11.4979V0H0V11.3652C0 13.7713 0.671135 15.6663 2.05507 17.1587C3.58375 18.7904 5.80549 19.7259 8.15225 19.7259C10.499 19.7259 12.723 18.7904 14.2516 17.1587C15.6334 15.6663 16.3067 13.7713 16.3067 11.3652V0H13.212V11.5022V11.5001Z" fill="black"/></svg>
+          <svg x="80.59" y="0.274" width="18" height="19.452" viewBox="0 0 17.9977 19.4518"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5765 19.4518H17.9977V0.0348091H14.653L14.7056 12.9664L1.73265 0H0.0241291L0 19.3691H3.34468L3.29424 6.39617C4.28339 7.3556 14.5938 17.5003 16.5787 19.4518H16.5765Z" fill="black"/></svg>
+          <svg x="102.04" y="0.274" width="18.41" height="19.454" viewBox="0 0 18.4034 19.4539"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.2775 0H8.12374L0 19.4539H3.23283L5.24183 14.5393H13.1331L15.1706 19.4539H18.4034L10.3192 0.104427L10.2753 0H10.2775ZM11.918 11.6045H6.48101L9.19842 5.11476L11.9158 11.6045H11.918Z" fill="black"/></svg>
+          <svg x="120.45" y="0.274" width="13.55" height="19.452" viewBox="0 0 13.5542 19.4518"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V2.93267H5.23087V19.4518H8.32332V2.93267H13.5542V0H0Z" fill="black"/></svg>
+        </svg>
+      </a>
+
+      <div class="header__right">
+        <a href="#">TRIAL</a>
+        <a href="#">CLUB</a>
+        <div class="header__icon" aria-label="Search">
+          <svg viewBox="0 0 13.0141 13.0141" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.8676 12.1601L9.73819 9.03131C10.6452 7.94238 11.0975 6.54568 11.001 5.13177C10.9044 3.71786 10.2665 2.3956 9.2199 1.44005C8.1733 0.484494 6.79859 -0.0307768 5.38176 0.00142314C3.96492 0.0336231 2.61504 0.610815 1.61293 1.61293C0.610815 2.61504 0.0336231 3.96492 0.00142314 5.38176C-0.0307768 6.79859 0.484494 8.1733 1.44005 9.2199C2.3956 10.2665 3.71786 10.9044 5.13177 11.001C6.54568 11.0975 7.94238 10.6452 9.03131 9.73819L12.1601 12.8676C12.2065 12.914 12.2617 12.9509 12.3224 12.976C12.3831 13.0012 12.4481 13.0141 12.5138 13.0141C12.5795 13.0141 12.6446 13.0012 12.7053 12.976C12.766 12.9509 12.8211 12.914 12.8676 12.8676C12.914 12.8211 12.9509 12.766 12.976 12.7053C13.0012 12.6446 13.0141 12.5795 13.0141 12.5138C13.0141 12.4481 13.0012 12.3831 12.976 12.3224C12.9509 12.2617 12.914 12.2065 12.8676 12.1601ZM1.01381 5.51381C1.01381 4.6238 1.27773 3.75377 1.7722 3.01375C2.26667 2.27373 2.96947 1.69695 3.79174 1.35636C4.61401 1.01576 5.51881 0.926647 6.39172 1.10028C7.26464 1.27391 8.06646 1.7025 8.6958 2.33183C9.32513 2.96117 9.75372 3.76299 9.92735 4.63591C10.101 5.50882 10.0119 6.41362 9.67127 7.23589C9.33068 8.05816 8.7539 8.76096 8.01388 9.25543C7.27386 9.74989 6.40383 10.0138 5.51381 10.0138C4.32075 10.0125 3.17692 9.53796 2.3333 8.69433C1.48967 7.85071 1.01514 6.70688 1.01381 5.51381Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="header__cart" aria-label="Shopping cart">
+          <svg viewBox="0 0 13 12.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3H9.5a3 3 0 00-6 0H1a1 1 0 00-1 1v7.5a1 1 0 001 1h11a1 1 0 001-1V4a1 1 0 00-1-1zM6.5 1A2.5 2.5 0 019 3H4a2.5 2.5 0 012.5-2zm5.5 10.5H1V4h2.5v1a.5.5 0 001 0V4h4v1a.5.5 0 001 0V4H12v7.5z" fill="black"/>
+          </svg>
+          <span class="header__cart-badge">4</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEO HERO -->
+  <section class="video-hero fade-in-up">
+    <div class="video-hero__wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/Ri2N2KWwrNg"
+        title="T2EP1 - Pino Montesdeoca | WOMEN by COCUNAT"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- EPISODE INFO -->
+  <section class="episode-info">
+    <h1 class="episode-info__title fade-in-up">T2EP1 - PINO MONTESDEOCA</h1>
+    <p class="episode-info__meta fade-in-up" style="transition-delay:0.15s">24 FEB 2026 | JUNO HOUSE</p>
+    <p class="episode-info__desc fade-in-up" style="transition-delay:0.3s">Varius nisi feugiat tempor phasellus pulvinar habitasse primis condimentum vestibulum ad orci a vestibulum id a vulputate dictumst magnis volutpat at senectus augue convallis posuere. Blandit lorem vestibulum fusce at sapien a proin dolor convallis felis justo condimentum penatibus quisque vehicula ridiculus in lacinia sociosqu a vel mattis eu eget erat.</p>
+  </section>
+
+  <!-- EPISODE QUOTE -->
+  <section class="episode-quote fade-in-up">
+    <h2 class="episode-quote__text">&ldquo;Nunca es tarde. Tampoco a los 60.&rdquo;</h2>
+    <p class="episode-quote__author">Pino Montesdeoca | Modelo &amp; Actriz</p>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="photo-gallery fade-in-up">
+    <picture>
+      <source srcset="assets/event-02.webp" type="image/webp">
+      <img class="photo-gallery__img" src="assets/event-02.png" alt="Behind the scenes 1">
+    </picture>
+    <picture>
+      <source srcset="assets/event-01.webp" type="image/webp">
+      <img class="photo-gallery__img" src="assets/event-01.png" alt="Behind the scenes 2">
+    </picture>
+    <picture>
+      <source srcset="assets/event-03.webp" type="image/webp">
+      <img class="photo-gallery__img" src="assets/event-03.png" alt="Behind the scenes 3">
+    </picture>
+    <picture>
+      <source srcset="assets/event-04.webp" type="image/webp">
+      <img class="photo-gallery__img" src="assets/event-04.png" alt="Behind the scenes 4">
+    </picture>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="chapters fade-in-up">
+    <h2 class="chapters__title">Los temas que exploramos</h2>
+    <ul class="chapters__list">
+      <li class="chapters__item"><span class="chapters__time">00:00</span> &ndash; Presentaci&oacute;n e inicio</li>
+      <li class="chapters__item"><span class="chapters__time">06:17</span> &ndash; Longevidad: m&aacute;s all&aacute; de la est&eacute;tica</li>
+      <li class="chapters__item"><span class="chapters__time">09:32</span> &ndash; El reto de alcanzar el siglo de vida con salud</li>
+      <li class="chapters__item"><span class="chapters__time">10:30</span> &ndash; Dilemas &eacute;ticos sobre la extensi&oacute;n de la vida</li>
+      <li class="chapters__item"><span class="chapters__time">15:15</span> &ndash; Prevenci&oacute;n m&eacute;dica y el proyecto Be Levels Kids</li>
+      <li class="chapters__item"><span class="chapters__time">18:10</span> &ndash; El origen infantil de las patolog&iacute;as metab&oacute;licas</li>
+      <li class="chapters__item"><span class="chapters__time">21:18</span> &ndash; El fen&oacute;meno de la pubertad precoz hoy en d&iacute;a</li>
+      <li class="chapters__item"><span class="chapters__time">26:00</span> &ndash; Impacto del bullying y traumas en la ni&ntilde;ez</li>
+      <li class="chapters__item"><span class="chapters__time">27:41</span> &ndash; Hipersensibilidad y estr&eacute;s en el sistema nervioso infantil</li>
+      <li class="chapters__item"><span class="chapters__time">33:19</span> &ndash; El debate sobre anticonceptivos y acn&eacute; en j&oacute;venes</li>
+      <li class="chapters__item"><span class="chapters__time">37:10</span> &ndash; Sedentarismo actual vs. el estilo de vida activo de antes</li>
+      <li class="chapters__item"><span class="chapters__time">42:10</span> &ndash; Estrategias para la atenci&oacute;n cl&iacute;nica de adolescentes</li>
+      <li class="chapters__item"><span class="chapters__time">43:00</span> &ndash; Alimentaci&oacute;n ultraprocesada vs. actividad f&iacute;sica</li>
+      <li class="chapters__item"><span class="chapters__time">46:20</span> &ndash; La visi&oacute;n detr&aacute;s de Be Levels Kids</li>
+      <li class="chapters__item"><span class="chapters__time">49:42</span> &ndash; La responsabilidad de las empresas de salud</li>
+      <li class="chapters__item"><span class="chapters__time">51:09</span> &ndash; Construyendo un futuro m&aacute;s saludable para los j&oacute;venes</li>
+      <li class="chapters__item"><span class="chapters__time">51:20</span> &ndash; Riesgos de consultar la salud con Inteligencia Artificial</li>
+      <li class="chapters__item"><span class="chapters__time">54:24</span> &ndash; La crisis creciente de salud mental</li>
+      <li class="chapters__item"><span class="chapters__time">1:00:56</span> &ndash; Realidad familiar: la imperfecci&oacute;n de los padres</li>
+    </ul>
+  </section>
+
+  <!-- SPOTIFY -->
+  <section class="spotify-section fade-in-up">
+<div class="spotify-section__embed">
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/episode/2HeXb6OgrHei8WP8hh8T2D?utm_source=generator&theme=0"
+        width="100%"
+        height="232"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- TAMBIÉN TE PUEDE INTERESAR -->
+  <section class="t1-section">
+    <h2 class="season-heading">TAMBI&Eacute;N TE PUEDE INTERESAR</h2>
+
+    <div class="carousel">
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.png" type="image/png">
+          <source srcset="assets/T1EP1.webp" type="image/webp">
+          <img src="assets/T1EP1.png" alt="Sof&iacute;a Ruiz del Cueto">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 1</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">M&eacute;dica Est&eacute;tica</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">SOF&Iacute;A RUIZ DEL CUETO</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.png" type="image/png">
+          <source srcset="assets/T1EP2.webp" type="image/webp">
+          <img src="assets/T1EP2.png" alt="Ethel Eljarrat">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 2</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Cient&iacute;fica e Investigadora</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">ETHEL ELJARRAT</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.png" type="image/png">
+          <source srcset="assets/T1EP3.webp" type="image/webp">
+          <img src="assets/T1EP3.png" alt="Marta Marc&egrave;">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 3</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Nutricionista y Experta en Menopausia</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">MARTA MARC&Egrave;</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.png" type="image/png">
+          <source srcset="assets/T1EP4.webp" type="image/webp">
+          <img src="assets/T1EP4.png" alt="M. Rodr&iacute;guez">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 4</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Periodista</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">M. RODR&Iacute;GUEZ</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.png" type="image/png">
+          <source srcset="assets/T1EP1.webp" type="image/webp">
+          <img src="assets/T1EP1.png" alt="Sof&iacute;a Ruiz del Cueto">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 1</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">M&eacute;dica Est&eacute;tica</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">SOF&Iacute;A RUIZ DEL CUETO</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.png" type="image/png">
+          <source srcset="assets/T1EP2.webp" type="image/webp">
+          <img src="assets/T1EP2.png" alt="Ethel Eljarrat">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 2</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Cient&iacute;fica e Investigadora</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">ETHEL ELJARRAT</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.png" type="image/png">
+          <source srcset="assets/T1EP3.webp" type="image/webp">
+          <img src="assets/T1EP3.png" alt="Marta Marc&egrave;">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 3</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Nutricionista y Experta en Menopausia</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">MARTA MARC&Egrave;</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.png" type="image/png">
+          <source srcset="assets/T1EP4.webp" type="image/webp">
+          <img src="assets/T1EP4.png" alt="M. Rodr&iacute;guez">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 4</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Periodista</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">M. RODR&Iacute;GUEZ</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP1-mb.png" type="image/png">
+          <source srcset="assets/T1EP1.webp" type="image/webp">
+          <img src="assets/T1EP1.png" alt="Sof&iacute;a Ruiz del Cueto">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 1</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">M&eacute;dica Est&eacute;tica</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">SOF&Iacute;A RUIZ DEL CUETO</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP2-mb.png" type="image/png">
+          <source srcset="assets/T1EP2.webp" type="image/webp">
+          <img src="assets/T1EP2.png" alt="Ethel Eljarrat">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 2</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Cient&iacute;fica e Investigadora</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">ETHEL ELJARRAT</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP3-mb.png" type="image/png">
+          <source srcset="assets/T1EP3.webp" type="image/webp">
+          <img src="assets/T1EP3.png" alt="Marta Marc&egrave;">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 3</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Nutricionista y Experta en Menopausia</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">MARTA MARC&Egrave;</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-mini" data-href="episodio.html">
+        <picture class="card-mini__bg">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="assets/T1EP4-mb.png" type="image/png">
+          <source srcset="assets/T1EP4.webp" type="image/webp">
+          <img src="assets/T1EP4.png" alt="M. Rodr&iacute;guez">
+        </picture>
+        <div class="card-mini__content">
+          <div class="card-mini__header">
+            <span class="card-mini__ep">EP 4</span>
+            <span class="card-mini__brand">COCUNAT HQ</span>
+          </div>
+          <div class="card-mini__body">
+            <span class="card-mini__profession">Periodista</span>
+            <div class="card-mini__footer">
+              <span class="card-mini__name">M. RODR&Iacute;GUEZ</span>
+              <span class="card-mini__date">8 MAR 25</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer__newsletter">
+      <h2 class="footer__newsletter-title">&Uacute;NETE A NUESTRA COMUNIDAD</h2>
+      <p class="footer__newsletter-desc">S&eacute; parte de nuestras FANT&Aacute;STICAS y disfruta de descuentos especiales, accesos exclusivos, los mejores tips y mucho m&aacute;s...</p>
+      <form class="footer__newsletter-form" onsubmit="return false;">
+        <input type="email" class="footer__newsletter-input" placeholder="Introduce tu email">
+        <button type="submit" class="footer__newsletter-btn">SUSCRIBIRME</button>
+      </form>
+    </div>
+
+    <div class="footer__columns">
+      <div class="footer__col">
+        <h3 class="footer__col-title">SERVICIO AL CLIENTE</h3>
+        <ul class="footer__col-list">
+          <li><a href="https://cocunat.com/es-es/contact">FORMULARIO DE CONTACTO</a></li>
+          <li><a href="tel:+34911980581">+34 911 980 581</a></li>
+          <li><a href="https://cocunat.com/es-es/pages/terms-of-service">TERMINOS Y CONDICIONES</a></li>
+          <li><a href="https://cocunat.com/es-es/pages/delivery-and-returns-policy">ENV&Iacute;OS Y DEVOLUCIONES</a></li>
+          <li><a href="https://cocunat.com/es-es/pages/secure-payment">COMPRA SEGURA</a></li>
+        </ul>
+        <p class="footer__schedule">Horario de Lunes a Jueves de 09:00 a 18:00 y Viernes de 09:00 a 15:00</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__col-title">INFORMACI&Oacute;N</h3>
+        <ul class="footer__col-list">
+          <li><a href="https://cocunat.com/es-es/landings/about-us">ACERCA DE NOSOTROS</a></li>
+          <li><a href="https://cocunat.com/es-es/stores">TIENDAS</a></li>
+          <li><a href="https://club.co/cocunat">CONVI&Eacute;RTETE EN EMBAJADORA</a></li>
+          <li><a href="#">PROGRAMA DE AFILIADOS</a></li>
+          <li><a href="https://cocunat.jobs.personio.de/">TRABAJA CON NOSOTROS</a></li>
+          <li><a href="https://cocunat.com/es-es/landings/privacy-policy">SEGURIDAD, PRIVACIDAD Y COOKIES</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__innvierte">
+        <p class="footer__innvierte-text">Esta empresa est&aacute; capitalizada por INNVIERTE, INICIATIVA DE INVERSI&Oacute;N DE CDTI, E.P.E.</p>
+        <img class="footer__innvierte-logo" src="https://cdn.shopify.com/s/files/1/0619/1693/8405/files/20241108_logo_innvierte_azul_fondo_blanco_300ppp_1__1___1_-removebg-preview.png?v=1752068390" alt="INNVIERTE">
+      </div>
+      <div class="footer__social">
+        <div class="footer__social-icons">
+          <a href="https://www.instagram.com/cocunat/" target="_blank" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/cocunat.int/" target="_blank" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@cocunat" target="_blank" class="footer__social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.43a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.86z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Cocunat" target="_blank" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14c1.88.55 9.38.55 9.38.55s7.5 0 9.38-.55a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+        </div>
+        <span class="footer__copyright">&copy; 2026 COCUNAT - INTERNATIONAL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ─── Photo gallery: infinite carousel via transform (no native scroll) ─── */
+    document.querySelectorAll('.photo-gallery').forEach(gallery => {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const speed = 0.4;
+      let paused = isMobile;
+      let isDown = false;
+      let startX, startTranslate;
+      let touchTimeout;
+      let currentX = 0;
+
+      /* ── Crear track interior ── */
+      const track = document.createElement('div');
+      track.className = 'photo-gallery__track';
+      while (gallery.firstChild) track.appendChild(gallery.firstChild);
+      gallery.appendChild(track);
+
+      /* ── Clonar contenido las veces necesarias para cubrir el viewport ── */
+      const originals = [...track.children];
+      const copies = Math.max(1, Math.ceil((window.innerWidth * 2) / track.scrollWidth));
+      for (let i = 0; i < copies; i++) {
+        originals.forEach(el => track.appendChild(el.cloneNode(true)));
+      }
+
+      /* ── Ancho de un set (originales + gaps) ── */
+      const gap = parseInt(getComputedStyle(track).gap) || 0;
+      let setWidth = 0;
+
+      function calcWidth() {
+        setWidth = 0;
+        originals.forEach(el => { setWidth += el.offsetWidth + gap; });
+      }
+      calcWidth();
+
+      /* Recalcular cuando las imágenes carguen */
+      gallery.querySelectorAll('img').forEach(img => {
+        if (!img.complete) img.addEventListener('load', calcWidth, { once: true });
+      });
+
+      function setPos(x) {
+        if (setWidth < 1) return;            /* protección: aún sin ancho */
+        while (x <= -setWidth) x += setWidth;
+        while (x > 0) x -= setWidth;
+        currentX = x;
+        track.style.transform = 'translateX(' + x + 'px)';
+      }
+
+      /* ── Auto-scroll ── */
+      function tick() {
+        if (!paused && !isDown) {
+          setPos(currentX - speed);
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      /* ── Pause on hover (desktop) ── */
+      gallery.addEventListener('mouseenter', () => { paused = true; });
+      gallery.addEventListener('mouseleave', () => {
+        paused = false;
+        if (isDown) {
+          isDown = false;
+          gallery.classList.remove('is-dragging');
+        }
+      });
+
+      /* ── Touch: drag + pause (mobile) ── */
+      gallery.addEventListener('touchstart', e => {
+        clearTimeout(touchTimeout);
+        paused = true;
+        isDown = true;
+        startX = e.touches[0].clientX;
+        startTranslate = currentX;
+      }, { passive: true });
+
+      gallery.addEventListener('touchmove', e => {
+        if (!isDown) return;
+        const diff = e.touches[0].clientX - startX;
+        setPos(startTranslate + diff);
+      }, { passive: true });
+
+      gallery.addEventListener('touchend', () => {
+        isDown = false;
+        if (!isMobile) {
+          touchTimeout = setTimeout(() => { paused = false; }, 800);
+        }
+      });
+
+      /* ── Drag to scroll (desktop) ── */
+      gallery.addEventListener('mousedown', e => {
+        isDown = true;
+        gallery.classList.add('is-dragging');
+        startX = e.clientX;
+        startTranslate = currentX;
+      });
+      gallery.addEventListener('mouseup', () => {
+        isDown = false;
+        gallery.classList.remove('is-dragging');
+      });
+      gallery.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const diff = e.clientX - startX;
+        setPos(startTranslate + diff);
+      });
+    });
+
+    /* ─── Fade in from bottom on scroll ─── */
+    (function() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      elements.forEach(el => observer.observe(el));
+    })();
+
+    // Drag-to-scroll with momentum for T1 carousel
+    document.querySelectorAll('.carousel').forEach(function(el) {
+      var isDown = false, startX, scrollLeft, velX = 0, trackVel = [], rafId;
+
+      el.addEventListener('mousedown', function(e) {
+        isDown = true;
+        el.classList.add('is-dragging');
+        startX = e.pageX;
+        scrollLeft = el.scrollLeft;
+        velX = 0;
+        trackVel = [];
+        cancelAnimationFrame(rafId);
+      });
+
+      window.addEventListener('mouseup', function() {
+        if (!isDown) return;
+        isDown = false;
+        el.classList.remove('is-dragging');
+        if (trackVel.length > 0) {
+          var sum = 0;
+          for (var i = 0; i < trackVel.length; i++) sum += trackVel[i];
+          velX = sum / trackVel.length;
+        }
+        momentum();
+      });
+
+      el.addEventListener('mouseleave', function() {
+        if (isDown) {
+          isDown = false;
+          el.classList.remove('is-dragging');
+          if (trackVel.length > 0) {
+            var sum = 0;
+            for (var i = 0; i < trackVel.length; i++) sum += trackVel[i];
+            velX = sum / trackVel.length;
+          }
+          momentum();
+        }
+      });
+
+      el.addEventListener('mousemove', function(e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX;
+        var walk = x - startX;
+        var prev = el.scrollLeft;
+        el.scrollLeft = scrollLeft - walk;
+        var delta = el.scrollLeft - prev;
+        trackVel.push(delta);
+        if (trackVel.length > 5) trackVel.shift();
+      });
+
+      function momentum() {
+        el.scrollLeft += velX;
+        velX *= 0.95;
+        if (Math.abs(velX) > 0.5) {
+          rafId = requestAnimationFrame(momentum);
+        }
+      }
+    });
+
+    // Click-to-navigate on episode cards (skip if dragged)
+    document.querySelectorAll('[data-href]').forEach(function(card) {
+      var downX = 0;
+      card.addEventListener('mousedown', function(e) { downX = e.pageX; });
+      card.addEventListener('click', function(e) {
+        if (Math.abs(e.pageX - downX) < 5) {
+          window.location.href = card.getAttribute('data-href');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
