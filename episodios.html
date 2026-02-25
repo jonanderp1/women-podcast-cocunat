@@ -232,7 +232,6 @@
       justify-content: center;
       gap: 32px;
       padding: 0 24px 40px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       max-width: 900px;
       margin: 0 auto;
     }
@@ -275,29 +274,41 @@
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: #999;
-      padding: 40px 0 24px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      color: #000;
+      padding: 40px 0 16px;
       margin-bottom: 0;
     }
 
     /* ─── EPISODE ROW ─── */
     .episode-row {
-      display: flex;
-      gap: 32px;
-      padding: 32px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      grid-template-rows: auto auto;
+      gap: 0 20px;
+      padding: 24px 16px;
+      margin: 0 -16px;
+      border-radius: 8px;
       text-decoration: none;
       color: inherit;
-      align-items: flex-start;
+      align-items: start;
       transition: background 0.2s;
     }
 
-    .episode-row:hover { background: rgba(0, 0, 0, 0.015); }
+    .episode-row { position: relative; margin-bottom: 16px; }
+    .episode-row::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.06);
+    }
+    .episode-row:hover { background: rgba(0, 0, 0, 0.03); }
 
     .episode-row__image {
-      flex: 0 0 200px;
-      aspect-ratio: 3/4;
+      grid-row: 1 / -1;
+      aspect-ratio: 360/499;
       overflow: hidden;
       border-radius: 4px;
     }
@@ -314,7 +325,7 @@
     }
 
     .episode-row__info {
-      flex: 1;
+      grid-column: 2;
       display: flex;
       flex-direction: column;
       gap: 6px;
@@ -328,7 +339,7 @@
       font-size: 13px;
       font-weight: 400;
       letter-spacing: 0.04em;
-      color: #999;
+      color: #000;
     }
 
     .episode-row__name {
@@ -343,16 +354,16 @@
       font-weight: 300;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: #666;
+      color: #000;
     }
 
     .episode-row__desc {
       font-size: 15px;
       font-weight: 300;
       line-height: 1.5;
-      color: #444;
+      color: #000;
+      grid-column: 2;
       margin-top: 8px;
-      max-width: 520px;
     }
 
     .episode-row__meta {
@@ -361,7 +372,7 @@
       margin-top: 12px;
       font-size: 13px;
       font-weight: 300;
-      color: #999;
+      color: #000;
       letter-spacing: 0.04em;
     }
 
@@ -369,14 +380,13 @@
       display: inline-block;
       background: #ebfe4d;
       color: #000;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 400;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 999px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin-top: 4px;
-      align-self: flex-start;
+      margin-left: 4px;
     }
 
     /* ─── FADE IN ─── */
@@ -569,7 +579,7 @@
 
       .episodes { padding: 0 24px 60px; }
 
-      .episode-row__image { flex: 0 0 160px; }
+      .episode-row__image { flex: 0 0 120px; }
       .episode-row__name { font-size: 20px; }
 
       .footer__columns { gap: 80px; }
@@ -586,19 +596,27 @@
       .episodes { padding: 0 16px 40px; }
 
       .episode-row {
-        flex-direction: column;
-        gap: 16px;
-        padding: 24px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 16px 12px;
+        margin: 0 -12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 0;
+        align-items: center;
       }
+      .episode-row::after { display: none; }
 
       .episode-row__image {
-        flex: none;
-        width: 100%;
-        aspect-ratio: 16/9;
+        flex: 0 0 72px;
+        aspect-ratio: 1/1;
       }
 
-      .episode-row__name { font-size: 20px; }
-      .episode-row__desc { font-size: 14px; }
+      .episode-row__name { font-size: 16px; margin-top: 2px; }
+      .episode-row__desc { font-size: 14px; margin-top: 0; padding-left: 0; line-height: 1.3; width: 100%; }
+      .episode-row__top { font-size: 12px; }
+      .episode-row__profession { font-size: 12px; }
+      .episode-row__meta { font-size: 12px; margin-top: 6px; }
 
       .site-footer { padding: 40px 0 30px; }
       .footer__newsletter { padding: 0 20px; }
@@ -701,14 +719,13 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <h1 class="page-hero__title fade-in-up">Todos los episodios</h1>
-    <p class="page-hero__subtitle fade-in-up">WOMEN. &mdash; Un podcast de COCUNAT</p>
   </section>
 
   <!-- TABS -->
   <div class="tabs fade-in-up">
     <button class="tabs__btn is-active" data-filter="all">Todas</button>
-    <button class="tabs__btn" data-filter="t2">Temporada 2</button>
     <button class="tabs__btn" data-filter="t1">Temporada 1</button>
+    <button class="tabs__btn" data-filter="t2">Temporada 2</button>
   </div>
 
   <!-- EPISODE LIST -->
@@ -730,12 +747,12 @@
           </div>
           <h3 class="episode-row__name">PINO MONTESDEOCA</h3>
           <span class="episode-row__profession">Modelo &amp; Actriz</span>
-          <p class="episode-row__desc">Habla de belleza, pero tambi&eacute;n de verdad, &eacute;tica y responsabilidad. Una conversaci&oacute;n sin filtros sobre reinventarse despu&eacute;s de los 60.</p>
           <div class="episode-row__meta">
             <span>24 FEB 26</span>
             <span>1H 13M</span>
           </div>
         </div>
+        <p class="episode-row__desc">Habla de belleza, pero tambi&eacute;n de verdad, &eacute;tica y responsabilidad. Una conversaci&oacute;n sin filtros sobre reinventarse despu&eacute;s de los 60.</p>
       </a>
 
       <div class="episode-row episode-row--upcoming">
@@ -750,10 +767,10 @@
             <span class="episode-row__ep">EP 2</span>
             <span>&middot;</span>
             <span class="episode-row__location">CASA SEAT</span>
+            <span class="episode-row__tag">Pr&oacute;ximamente</span>
           </div>
           <h3 class="episode-row__name">ELENA BARRAQUER</h3>
           <span class="episode-row__profession">Oftalm&oacute;loga</span>
-          <span class="episode-row__tag">Pr&oacute;ximamente</span>
           <div class="episode-row__meta">
             <span>8 MAR 26</span>
           </div>
@@ -772,10 +789,10 @@
             <span class="episode-row__ep">EP 3</span>
             <span>&middot;</span>
             <span class="episode-row__location">JUNO HOUSE</span>
+            <span class="episode-row__tag">Pr&oacute;ximamente</span>
           </div>
           <h3 class="episode-row__name">ALEX SAINT</h3>
           <span class="episode-row__profession">Modelo &amp; Actriz</span>
-          <span class="episode-row__tag">Pr&oacute;ximamente</span>
           <div class="episode-row__meta">
             <span>22 MAR 26</span>
           </div>
@@ -802,11 +819,12 @@
           </div>
           <h3 class="episode-row__name">SOF&Iacute;A RUIZ DEL CUETO</h3>
           <span class="episode-row__profession">M&eacute;dica Est&eacute;tica</span>
-          <p class="episode-row__desc">Descubre su visi&oacute;n sobre la medicina est&eacute;tica con criterio, alejada de tendencias y centrada en el bienestar real de cada paciente.</p>
           <div class="episode-row__meta">
             <span>8 MAR 25</span>
+            <span>58 MIN</span>
           </div>
         </div>
+        <p class="episode-row__desc">Descubre su visi&oacute;n sobre la medicina est&eacute;tica con criterio, alejada de tendencias y centrada en el bienestar real de cada paciente.</p>
       </a>
 
       <a href="episodio.html" class="episode-row">
@@ -824,11 +842,12 @@
           </div>
           <h3 class="episode-row__name">ETHEL ELJARRAT</h3>
           <span class="episode-row__profession">Cient&iacute;fica e Investigadora</span>
-          <p class="episode-row__desc">Investigadora de referencia en contaminantes ambientales y su impacto en la salud. Una mirada cient&iacute;fica rigurosa y necesaria.</p>
           <div class="episode-row__meta">
             <span>8 MAR 25</span>
+            <span>1H 02M</span>
           </div>
         </div>
+        <p class="episode-row__desc">Investigadora de referencia en contaminantes ambientales y su impacto en la salud. Una mirada cient&iacute;fica rigurosa y necesaria.</p>
       </a>
 
       <a href="episodio.html" class="episode-row">
@@ -846,11 +865,12 @@
           </div>
           <h3 class="episode-row__name">MARTA MARC&Egrave;</h3>
           <span class="episode-row__profession">Nutricionista y Experta en Menopausia</span>
-          <p class="episode-row__desc">Especialista en nutrici&oacute;n hormonal y menopausia. Rompe mitos y ofrece herramientas pr&aacute;cticas para cada etapa de la vida.</p>
           <div class="episode-row__meta">
             <span>8 MAR 25</span>
+            <span>55 MIN</span>
           </div>
         </div>
+        <p class="episode-row__desc">Especialista en nutrici&oacute;n hormonal y menopausia. Rompe mitos y ofrece herramientas pr&aacute;cticas para cada etapa de la vida.</p>
       </a>
 
       <a href="episodio.html" class="episode-row">
@@ -868,11 +888,12 @@
           </div>
           <h3 class="episode-row__name">M. RODR&Iacute;GUEZ</h3>
           <span class="episode-row__profession">Periodista</span>
-          <p class="episode-row__desc">Periodista con una voz propia sobre salud, bienestar y el papel de la mujer en los medios. Conversaci&oacute;n directa y sin rodeos.</p>
           <div class="episode-row__meta">
             <span>8 MAR 25</span>
+            <span>1H 05M</span>
           </div>
         </div>
+        <p class="episode-row__desc">Periodista con una voz propia sobre salud, bienestar y el papel de la mujer en los medios. Conversaci&oacute;n directa y sin rodeos.</p>
       </a>
     </div>
 
@@ -970,6 +991,25 @@
       }, { threshold: 0.1 });
 
       elements.forEach(el => observer.observe(el));
+
+      /* Episode rows: staggered fade-in */
+      const rows = document.querySelectorAll('.episode-row');
+      rows.forEach(row => {
+        row.classList.add('fade-in-up');
+      });
+
+      const rowObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter(e => e.isIntersecting);
+        visible.forEach((entry, i) => {
+          setTimeout(() => {
+            entry.target.classList.add('is-visible');
+          }, i * 100);
+          rowObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.1 });
+
+      rows.forEach(row => rowObserver.observe(row));
+
     })();
   </script>
 
